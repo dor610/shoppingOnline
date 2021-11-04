@@ -1,0 +1,148 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    margin-top: -70px;
+}
+
+.main-content{
+    width: 100vw;
+    height: 300vh;
+    position: absolute;
+    top: 0;
+    transition: top 2s ease-out;
+}
+
+.main-content > div:first-child, .main-content > div:nth-child(2), .main-content > div:last-child{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100vh;
+    padding: 70px;
+}
+
+.main-content > div:nth-child(2){
+    flex-direction: row-reverse;
+}
+
+.main-content > div:first-child > div:first-child, .main-content > div:last-child > div:first-child{
+    text-align: right;
+}
+
+.main-content > div:first-child > div:first-child button, .main-content > div:last-child > div:first-child button{
+    display: block;
+    margin-left: calc(100% - 200px);
+}
+
+.main-content > div img{
+    height: 400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main-content > div > div{
+    width: calc(50% - 70px);
+}
+
+.main-content > div p{
+    font-size: 18px;
+    width: 100%;
+}
+
+
+.main-content > div button{
+    cursor: pointer;
+    color: white;
+    height: 50px;
+    width: 200px;
+    font-size: 18px;
+    display: block;
+    border: none;
+    outline: none;
+    margin-top: 20px;
+    background-image: linear-gradient(to right, #FFC0CB7F, #00BFFF66, #FFC0CB7F, #00BFFF66, #FFC0CB7F, #00BFFF66, #FFC0CB7F);
+    background-size: 500%;
+}
+
+.main-content > div button:hover{
+    animation: background-changing 30s infinite;
+}
+
+@keyframes background-changing {
+    0% {
+        background-position: 0%;
+    }
+
+    100% {
+        background-position: 500%;
+    }
+}
+
+
+.page-2{
+    top: -100vh;
+}
+
+.page-3{
+    top: -200vh;
+}
+
+.navigator{
+    position: absolute;
+    width: 20px;
+    height: 100px;
+    top: 50vh;
+    right: 20px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.navigator div{
+    width: 20px;
+    height: 10px;
+    margin-left: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    background-color: gray;
+    cursor: pointer;
+    transition: 2s;
+}
+
+.nav-page-1 div:first-child ,.nav-page-2 div:nth-child(2), .nav-page-3 div:last-child{
+    background-color: pink;
+    box-shadow: 0 0 5px pink;
+}
+
+
+@media only screen and (max-width: 1360px) {
+    .main-content > div:first-child, .main-content > div:nth-child(2), .main-content > div:last-child{
+        display: flex;
+        flex-direction: column-reverse;
+        padding: 10%;
+    }
+    .main-content > div > div{
+        width: 60%;
+        height: 40%;
+    }
+    .main-content > div img{
+         height: 80%;
+         display: block;
+         margin-left: auto;
+         margin-right: auto;
+     }
+    .main-content > div:first-child > div:first-child button, .main-content > div:last-child > div:first-child button,
+    .main-content > div:nth-child(2) > div:first-child button{
+        margin-left: calc(50% - 100px);
+        height: 40px;
+        line-height: 40px;
+    }
+    .main-content > div:first-child > div:first-child, .main-content > div:last-child > div:first-child{
+        text-align: left;
+    }
+}

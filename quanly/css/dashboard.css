@@ -1,0 +1,16 @@
+
+.main-container{
+    display: grid;
+    grid-template-columns: 250px auto;
+    width: 100vw;
+    height: auto;
+    background-color: #F5F3F3;
+}
+.nav-bar > nav > div:first-child{
+    color: white;
+}
+.content-container{
+    width: 100%;
+    height: 500px;
+}
+

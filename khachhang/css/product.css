@@ -1,0 +1,387 @@
+body{
+    background-color: #F5F3F3;
+    user-select: none;
+}
+.container{
+    width: 100vw;
+    overflow: hidden;
+}
+
+.container > div:nth-child(2){
+    display: grid;
+    grid-template-columns:  10% 300px auto 10%;
+    grid-template-rows: auto 100px;
+    grid-gap: 20px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.sorting-tab{
+    position: absolute;
+    top: 100px;
+    right: 15%;
+    width: calc(80% - 500px);
+    height: 40px;
+    display: flex;
+    flex-direction: row-reverse;
+    border-bottom: 1px solid rgba(178, 178, 178, 0.6);
+}
+
+.sorting-tab select{
+    border: none;
+    background-color: transparent;
+    height: 30px;
+    outline: none;
+    cursor: pointer;
+}
+
+.sorting-tab span{
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+}
+
+.filter-tab{
+    grid-column: 2;
+    grid-row: 1;
+    position: fixed;
+    top: 100px;
+    left: 10%;
+    width: 300px;
+    padding-bottom: 20px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(178, 178, 178, 0.6);
+    border-radius: 10px;
+    height: auto;
+}
+.filter-tab ul{
+    list-style-type: none;
+}
+
+.filter-tab nav div{
+    width: 300px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
+    padding-left: 70px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.filter-tab nav div:hover{
+    color: skyblue;
+}
+
+.filter-tab > div:first-child{
+    font-size: 20px;
+    margin: 20px;
+    margin-bottom: 10px;
+    width: calc(100% - 40px);
+    padding-left: 10px;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid rgba(178, 178, 178, 0.6);
+}
+
+.filter-tab ul{
+    font-size: 20px;
+}
+.filter-tab ul ul{
+    font-size: 18px;
+    padding-left: 20px;
+}
+
+.product-container{
+    grid-column: 3;
+    grid-row: 1;
+    margin-top: 80px;
+    grid-column: 3;
+    display: grid;
+    grid-template-columns: auto 33% 33% 33% auto;
+    grid-gap: 10px;
+    width: 100%;
+}
+
+.product-container > div{
+    width: 100%;
+    min-height: 100px;
+    background-color: transparent;
+    overflow: hidden;
+}
+
+.col-1{
+    grid-column: 2;
+}
+
+.col-2{
+    grid-column: 3;
+}
+
+.col-3{
+    grid-column: 4;
+}
+
+.product-item{
+    height: auto;
+    width: 100%;
+    margin-bottom: 10px;
+    border: 1px solid rgba(178, 178, 178, 0.4);
+    border-radius: 10px;
+    position: relative;
+}
+.product-item img{
+    width: 100%;
+    cursor: pointer;
+}
+
+.product-item:hover > div:nth-child(2){
+    opacity: 1;
+}
+
+.product-item > div:nth-child(2){
+    cursor: pointer;
+    font-size: 1.3pc;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    display: flex;
+    flex-direction: column-reverse;
+    color: white;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: opacity 1s;
+}
+
+.product-item > div > p:first-child{
+    padding-right: 10%;
+    text-align: right;
+}
+
+.product-item > div:last-child{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.disabled {
+    opacity: 0.3;
+}
+
+
+
+.item-tab{
+    position: fixed;
+    width: 100vw;
+    height: calc( 100vh - 70px);
+    background-color: white;
+    top: 70px;
+    left: 0;
+    z-index: 2;
+}
+
+.back-icon{
+    fill:none;
+    stroke:white;
+    stroke-linecap:round;
+    stroke-miterlimit:10;
+    stroke-width:29px;
+    cursor: pointer;
+}
+
+.back-btn:hover .back-icon{
+    stroke: pink;
+    cursor: pointer;
+}
+
+.back-btn svg{
+    width: 40px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.item-tab-header{
+    width: 100%;
+    height: 50px;
+    background-color: skyblue;
+}
+
+.item-tab-container{
+    margin-top: 20px;
+}
+
+.item-tab-container div:first-child{
+    display: flex;
+    flex-direction: row;
+}
+
+.item-img{
+    width: 30%;
+    margin-left: 15%;
+    min-height: 450px;
+    display: flex;
+    align-items: center;
+}
+
+.item-img img{
+    height: 450px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.item-information{
+    width: 40%;
+    padding: 50px;
+    padding-top: 100px;
+    font-size: 1.5pc;
+}
+
+.item-information > div{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+}
+
+.item-information #item-name{
+    font-size: 2pc;
+    font-weight: bold;
+}
+
+.item-information > button{
+    cursor: pointer;
+    color: black;
+    height: 50px;
+    width: 200px;
+    font-size: 18px;
+    outline: none;
+    margin-top: 20px;
+    background-color: transparent;
+    border: 2px solid rgba(128, 128, 128, 0.4);
+    border-radius: 20px;
+    /*background-image: linear-gradient(to right, #FFC0CB7F, #00BFFF66, #FFC0CB7F, #00BFFF66, #FFC0CB7F, #00BFFF66, #FFC0CB7F);*/
+    background-size: 500%;
+}
+
+.item-information > div:nth-child(4) span{
+    display: inline-block;
+    margin-right: 10px;
+}
+.item-information > div:nth-child(4) span:last-child > span{
+    display: flex;
+    align-items: center;
+}
+
+.item-information > div:nth-child(4) span:last-child > span label{
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.item-information > div:nth-child(4) span:last-child > span input:disabled+label{
+    color: rgba(128, 128, 128, 0.51);
+}
+
+.item-information > div:nth-child(5) > button{
+    outline: none;
+    height: 30px;
+    width: 20px;
+    background-color: transparent;
+    display: inline-block;
+    margin: 5px;
+    border: 1px solid rgba(128, 128, 128, 0.4);
+    border-radius: 5px;
+}
+
+.item-information > div:nth-child(5) > button:disabled + span{
+    color: rgba(128, 128, 128, 0.51);
+}
+
+.item-information > button:hover, .item-information > div:nth-child(5) > button:hover{
+    cursor: pointer;
+    border-color: skyblue;
+}
+
+.item-information > button:last-child:hover{
+    cursor: pointer;
+    border-color: pink;
+}
+
+.item-description{
+    grid-area: des;
+    min-height: 200px;
+}
+
+/*-----------------------------------*/
+
+.loading-icon{
+    position: relative;
+    grid-row: 2;
+    grid-column: 3;
+    width: 100%;
+    height: 70px;
+    color: gray;
+    text-align: center;
+    line-height: 70px;
+}
+
+.loading-icon div:last-child{
+    text-align: center;
+}
+
+.loading-icon svg{
+    width: 70px;
+    position: absolute;
+    left: 50%;
+    opacity: 0.6;
+    display: none;
+}
+
+.loading-icon svg:first-child{
+    animation: spin 1s infinite linear;
+}
+
+.loading-icon svg:nth-child(2){
+    animation: spin 2.5s infinite ease-out;
+}
+
+.loading-1,.loading-2{
+    fill:none;stroke-linecap:round;stroke-miterlimit:10;
+}
+.loading-1{
+    stroke:aqua;stroke-width:16px;
+}
+.loading-2{
+    stroke:#ff7bac;stroke-width:9px;
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
+.show-loading-icon svg{
+    display: block;
+}
+.noti{
+    display: block;
+}
+
+.hidden{
+    display: none;
+}
+
+.active-btn{
+    color: pink;
+}

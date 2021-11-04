@@ -1,0 +1,352 @@
+
+body{
+    background-color: #F5F3F3;
+}
+
+.container{
+    position: relative;
+    margin-top: 20px;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+.container > div:first-child{
+    display: none;
+    width: 60%;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    color: rgba(128, 128, 128, 0.5);
+    position: absolute;
+    top: 150px;
+}
+.container > div:first-child > button{
+    outline: none;
+    display: inline-block;
+    margin-left: 10px;
+    background-color: transparent;
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    color: rgba(128, 128, 128, 0.5);
+    width: 150px;
+    height: 40px;
+}
+
+.container > div:first-child > button:hover{
+    border-color: deepskyblue;
+    color: black;
+    cursor: pointer;
+}
+
+.container > div:nth-child(2){
+    display: grid;
+    grid-template-columns: 40% repeat(5, 12%);
+    font-size: 18px;
+    background-color: white;
+    width: 100%;
+    padding-right: 30px;
+    padding-left: 30px;
+    height: 50px;
+    align-items: center;
+}
+
+.container > div:nth-child(2) > div:first-child{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.container > div:nth-child(2) > div:first-child ~ div{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.container > div:nth-child(3){
+    margin-top: 10px;
+    background-color: white;
+    width: 100%;
+    padding: 30px;
+    height: auto;
+    min-height: 200px;
+}
+
+.container > div:nth-child(3) > div{
+    display: grid;
+    grid-template-columns: 40% repeat(5, 12%);
+    width: 100%;
+    height: 100px;
+    border-top: 1px solid rgba(128, 128, 128, 0.5);
+    align-items: center;
+}
+
+.container > div:nth-child(3) > div:last-child{
+    border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+}
+
+.container > div:nth-child(3) > div > div:first-child{
+    display: flex;
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    align-items: center;
+}
+
+.container > div:nth-child(3) > div > div:first-child > img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 80%;
+}
+
+.container > div:nth-child(3) > div > div:first-child > div{
+    width: 60%;
+    height: 100px;
+}
+
+.container > div:nth-child(3) > div > div:first-child ~ div{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+.container > div:nth-child(3) > div > button:last-child{
+    background-color: transparent;
+    outline: none;
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    height: 30px;
+}
+
+.container > div:nth-child(3) > div > button:last-child:hover{
+    border-color: pink;
+    color: pink;
+    cursor: pointer;
+}
+
+.noti{
+    width: 100%;
+    margin-top: 50px;
+    font-size: 24px;
+    color: rgba(128, 128, 128, 0.5);
+    text-align: center;
+}
+
+
+.container > div:nth-child(4){
+    display: flex;
+    margin-top: 10px;
+    background-color: white;
+    width: 100%;
+    padding-right: 30px;
+    padding-left: 30px;
+    height: 70px;
+}
+
+.container > div:nth-child(4) >div:first-child{
+    width: 40%;
+    margin-right: 20px;
+    text-align: right;
+    font-size: 24px;
+    line-height: 70px;
+}
+
+.container > div:nth-child(4) > div:nth-child(2){
+    width: 30%;
+    font-size: 24px;
+    line-height: 70px;
+}
+
+.container > div:nth-child(4) > button:last-child, .container > div:last-child form > div:last-child > button{
+    width: 30%;
+    font-size: 20px;
+    height: 40px;
+    width: 200px;
+    margin-top: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    cursor: pointer;
+    color: white;
+    width: 200px;
+    display: block;
+    border: none;
+    outline: none;
+    background-image: linear-gradient(to right, #FFC0CB7F, #00BFFF66, #FFC0CB7F, #00BFFF66, #FFC0CB7F, #00BFFF66, #FFC0CB7F);
+    background-size: 500%;
+}
+
+.container > div:nth-child(4) > button:last-child:hover{
+    animation: background-changing 30s infinite;
+}
+
+@keyframes background-changing {
+    0% {
+        background-position: 0%;
+    }
+
+    100% {
+        background-position: 500%;
+    }
+}
+
+
+.container > div:last-child{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    display: none;
+}
+
+.container > div:last-child > div:first-child{
+    width: 50%;
+    height: 500px;
+    background-color: white;
+    padding: 10px;
+    padding-top: 0;
+}
+
+.container > div:last-child > div:first-child > div:first-child{
+    font-size: 24px;
+    padding-left: 25px;
+    padding-top: 20px;
+}
+
+.container > div:last-child form > div:last-child{
+    width: 80%;
+    height: 40px;
+    padding-left: 25px;
+    font-size: 18px;
+    line-height: 40px;
+    margin-top: 40px;
+}
+
+.container > div:last-child form > div:last-child > button{
+    display: inline-block;
+    width: 150px;
+    height: 40px;
+    font-size: 18px;
+    margin-left: 5%;
+}
+
+.container > div:last-child > div:first-child input{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    border: none;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+    height: 40px;
+    padding-left: 25px;
+    width: 80%;
+    font-size: 18px;
+    outline: none;
+    transition: 0.5s;
+}
+
+.container > div:last-child > div:first-child > div:nth-child(2) > div:last-child{
+    margin-top: 40px;
+}
+
+.container > div:last-child > div:first-child > div:nth-child(2) > div:last-child > div{
+    display: flex;
+    margin-top: 10px;
+    width: 100%;
+    padding-left: 10%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    gap: 10px;
+
+}
+
+.container > div:last-child > div:first-child > div:nth-child(2) > div:last-child > div:last-child{
+    flex-direction: column;
+    gap: 0;
+}
+
+.cus-address{
+    width: 80%;
+    display: flex;
+    position: relative;
+    align-items: center;
+    border-bottom: 1px solid  rgba(128, 128, 128, 0.5);
+}
+
+.cus-address-label{
+    margin: 5px;
+    width: calc(100% - 20px);
+}
+
+.down-arrow{
+    display: inline-block;
+    width: 15px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.5s ease-out;
+}
+
+.up-arrow{
+    transform: rotate(180deg);
+}
+
+.cus-address-box{
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    padding-left: 10px;
+    display: none;
+}
+.cus-address-box > div{
+    padding: 5px;
+}
+
+.cus-address-box > div:hover{
+    background-color: rgba(128, 128, 128, 0.2);
+}
+
+.show-cus-address-box{
+    display: block;
+}
+
+.container > div:last-child > div:nth-child(2){
+    width: 50%;
+    height: 500px;
+    background-color: white;
+}
+
+
+
+.buying > div:last-child {
+    display: flex;
+}
+
+
+
+.container > div:last-child > div:nth-child(2) > div{
+    width: 80%;
+    margin: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 60px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.container > div:last-child > div:nth-child(2) > div:first-child{
+    margin-left: 25px;
+    font-size: 24px;
+    margin-top: 0;
+}
+
+.container > div:last-child > div:nth-child(2) > div > span{
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.container > div:last-child > div:nth-child(2) > div:nth-child(2){
+    border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+}

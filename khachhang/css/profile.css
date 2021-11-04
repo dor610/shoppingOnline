@@ -1,0 +1,137 @@
+body{
+    background-color: #F5F3F3;
+}
+
+.profile-container{
+    display: grid;
+    grid-template-columns: 15% 300px auto 15%;
+    grid-gap: 20px;
+    margin-top: 50px;
+    font-family: "JetBrains Mono Thin", "Times New Roman";
+    color: #454f54;
+}
+
+.profile-nav-bar{
+    grid-column: 2;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(178, 178, 178, 0.6);
+    border-radius: 10px;
+    height: 250px;
+}
+
+.profile-nav-bar nav div{
+    width: 300px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    padding-left: 70px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.profile-nav-bar nav div:hover{
+    color: skyblue;
+}
+
+.main-content{
+    grid-column: 3;
+    width: 100%;
+    background-color: white;
+}
+
+.profile-account{
+    border-radius: 10px;
+    border: 1px solid rgba(178, 178, 178, 0.6);
+    min-height: 300px;
+}
+
+.profile-account > div:first-child{
+    font-size: 20px;
+    margin: 20px;
+    margin-bottom: 10px;
+    width: calc(100% - 40px);
+    padding-left: 10px;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid rgba(178, 178, 178, 0.6);
+}
+
+.profile-account > div:last-child{
+    display: grid;
+    grid-template-columns: 10% 200px auto 10%;
+}
+
+.profile-account > div:last-child > div:nth-child(odd){
+    grid-column: 2;
+}
+
+.profile-account > div:last-child > div:nth-child(even){
+    grid-column: 3;
+}
+
+.profile-account div{
+    font-size: 20px;
+    margin: 10px;
+    margin-left: 30px;
+}
+
+.profile-edit{
+    padding-bottom: 50px;
+}
+
+.profile-edit > div:first-child, .profile-nav-bar > div:first-child{
+    font-size: 20px;
+    margin: 20px;
+    margin-bottom: 10px;
+    width: calc(100% - 40px);
+    padding-left: 10px;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid rgba(178, 178, 178, 0.6);
+}
+
+.profile-edit input{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    background-color: rgba(255,255,255,0.5);
+    height: 40px;
+    padding-left: 25px;
+    width: 400px;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    transition: 0.5s;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+.profile-edit button{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    color: white;
+    height: 40px;
+    width: 150px;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-image: linear-gradient(to right, #FFC0CB7F, #00BFFF66, #FFC0CB7F, #00BFFF66, #FFC0CB7F, #00BFFF66, #FFC0CB7F);
+    background-size: 500%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.profile-active-btn{
+    border-left: 2px solid skyblue;
+    color: skyblue;
+}
+
+.hidden{
+    display: none;
+}
+

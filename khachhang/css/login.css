@@ -1,0 +1,124 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+button{
+    border-radius: 20px;
+}
+.form-container{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background-image: url("../img/login_img.png");
+    background-size: cover;
+    overflow: hidden;
+}
+
+.form-logo{
+    z-index: 2;
+    position: absolute;
+    width: 300px;
+    height: 100px;
+    top: 12vh;
+    right: 200px;
+}
+
+.form-logo svg{
+    width: 300px;
+}
+
+.login-form, .register-form{
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    width: 500px;
+    min-height: 450px;
+    background-color: rgba(78, 61, 64, 0.8);
+    z-index: 1;
+    right: 100px;
+    top: 10vh;
+    transition: 0.5s;
+}
+
+.login-form form, .register-form form{
+    margin-top: 10vh;
+}
+
+.login-form input, .register-form input{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    background-color: rgba(255,255,255,0.5);
+    height: 40px;
+    padding-left: 25px;
+    width: 400px;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    transition: 0.5s;
+}
+
+.login-form input::placeholder, .register-form input::placeholder{
+    color: black;
+}
+
+.login-form button, .register-form button{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    color: black;
+    height: 40px;
+    width: 150px;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-image: linear-gradient(to right, #FFC0CB7F, #00BFFF66, #FFC0CB7F, #00BFFF66, #FFC0CB7F, #00BFFF66, #FFC0CB7F);
+    background-size: 500%;
+}
+
+.login-form button:hover, .register-form button:hover{
+    animation: background-changing 30s linear infinite;
+    cursor: pointer;
+}
+
+.login-form div, .register-form div{
+    margin-top: 20px;
+    margin-left: 55px;
+    font-size: 18px;
+    color: gray;
+}
+
+.login-form span, .register-form span{
+    cursor: pointer;
+    color: deepskyblue;
+}
+
+.register-form span:hover, .login-form span:hover{
+    color: pink;
+}
+
+.register-form{
+    min-height: 770px;
+    padding-bottom: 20px;
+}
+
+.hidden-opacity{
+    opacity: 0;
+}
+.hidden {
+    display: none;
+}
+
+@keyframes background-changing {
+    0% {
+        background-position: 0%;
+    }
+
+    100% {
+        background-position: 500%;
+    }
+}
+

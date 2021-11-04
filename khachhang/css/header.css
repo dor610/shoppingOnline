@@ -1,0 +1,154 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+button{
+    border-radius: 20px;
+}
+.btn-disabled{
+    color: gray;
+    border-color: gray;
+    background-color: transparent;
+}
+.header{
+    display: flex;
+    height: 70px;
+    color: #454f54;
+    font-family: "JetBrains Mono Thin", "Times New Roman";
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    padding-left: 5%;
+    padding-right: 5%;
+    box-shadow: 0 0 5px gray;
+    background-color: white;
+}
+
+.header-logo {
+    width: 20%;
+}
+
+.header-logo svg{
+    width: 200px;
+}
+
+.nav-bar {
+    width: calc(65% - 140px);
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+    margin-top: 10px;
+    margin-left: 15%;
+}
+
+a{
+    text-decoration: none;
+    color: #454f54;
+}
+
+.nav-bar div{
+    font-size: 23px;
+    margin:5px;
+    width: 130px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    background-color: white;
+}
+
+.nav-bar div:hover a{
+    color: skyblue;
+}
+
+.account {
+    position: relative;
+    width: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 40px;
+    margin-top: 20px;
+    cursor: pointer;
+
+}
+
+.account-nav-bar{
+    position: absolute;
+    z-index: 5;
+    left: -80px;
+    top: 39px;
+    box-shadow: 1px 2px 3px gray;
+    visibility: hidden;
+}
+
+.account-nav-bar div{
+    font-size: 18px;
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.account-nav-bar div:hover a, .account-nav-bar div:hover{
+    color: skyblue;
+}
+
+.account svg{
+    height: 30px;
+}
+
+.account-cls-1{
+    fill: gray;
+    transition: 0.5s;
+}
+
+.account:hover .account-nav-bar{
+    visibility: visible;
+    background-color: white;
+}
+
+.account:hover .account-cls-1{
+    fill: skyblue;
+}
+
+.active-account-btn .account-cls-1{
+    fill: pink;
+}
+
+.cart{
+    width: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.cart svg{
+    height: 30px;
+}
+
+.cart-cls-1{
+    fill:none;
+    stroke: gray;
+    stroke-linecap:round;
+    stroke-miterlimit:10;
+    stroke-width:46px;
+}
+
+.cart:hover .cart-cls-1{
+    stroke: skyblue;
+}
+
+.active-cart-btn .cart-cls-1{
+    stroke: pink ;
+}
+
+.active-btn a, .active-btn{
+    color: pink;
+}
+
+.hidden{
+    display: none;
+}
