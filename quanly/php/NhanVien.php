@@ -52,7 +52,7 @@ class NhanVien{
         $result = $conn->query($sql);
         if($result->num_rows > 0){
             $row = $result->fetch_assoc();
-            $nhanVien = new NhanVien($row["msnv"], $row["chucvu"], $row["diachi"], $row["sodienthoai"]);
+            $nhanVien = new NhanVien($row["msnv"], $row["ChucVu"], $row["DiaChi"], $row["SoDienThoai"]);
         }
 
         $result->close();
@@ -69,7 +69,7 @@ class NhanVien{
         $arr = array([]);
         if($result->num_rows > 0){
             while ($row = $result->fetch_assoc()){
-                $nhanVien = new NhanVien($row["msnv"], $row["chucvu"], $row["diachi"], $row["sodienthoai"]);
+                $nhanVien = new NhanVien($row["msnv"], $row["ChucVu"], $row["DiaChi"], $row["SoDienThoai"]);
                 $arr[$row["mskh"]] = $nhanVien;
             }
         }
