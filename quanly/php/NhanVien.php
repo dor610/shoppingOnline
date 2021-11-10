@@ -6,22 +6,25 @@ class NhanVien{
 
     public $msnv;
     public $chuVu;
+    public $hoTenNV;
     public $diaChi;
     public $soDienThoai;
 
-    public function __construct($msnv, $chuVu, $diaChi, $soDienThoai){
+    public function __construct($msnv, $hoTenNV, $chuVu, $diaChi, $soDienThoai){
         $this->msnv = $msnv;
+        $this->hoTenNV = $hoTenNV;
         $this->chuVu = $chuVu;
         $this->diaChi = $diaChi;
         $this->soDienThoai = $soDienThoai;
     }
 
-    public static function them($newMsnv, $newChuVu, $newDiaChi, $newSoDienThoai){
+    public static function them($newMsnv, $newHoTenNV, $newChuVu, $newDiaChi, $newSoDienThoai){
         $conn = getConnection();
 
-        $sql = $conn->prepare("insert into nhanvien values (?,?,?,?)");
-        $sql->bind_param("ssss", $msnv, $chuVu, $diaChi, $soDienThoai);
+        $sql = $conn->prepare("insert into nhanvien values (?,?,?,?,?)");
+        $sql->bind_param("sssss", $msnv, $hoTenNV, $chuVu, $diaChi, $soDienThoai);
         $msnv = $newMsnv;
+        $hoTenNV = $newHoTenNV;
         $chuVu = $newChuVu;
         $diaChi = $newDiaChi;
         $soDienThoai = $newSoDienThoai;
@@ -52,7 +55,7 @@ class NhanVien{
         $result = $conn->query($sql);
         if($result->num_rows > 0){
             $row = $result->fetch_assoc();
-            $nhanVien = new NhanVien($row["msnv"], $row["ChucVu"], $row["DiaChi"], $row["SoDienThoai"]);
+            $nhanVien = new NhanVien($row["msnv"], $row["HoTenNV"],$row["ChucVu"], $row["DiaChi"], $row["SoDienThoai"]);
         }
 
         $result->close();
@@ -66,10 +69,10 @@ class NhanVien{
         $sql = "select * from nhanvien";
 
         $result = $conn->query($sql);
-        $arr = array([]);
+        $arr = [];
         if($result->num_rows > 0){
             while ($row = $result->fetch_assoc()){
-                $nhanVien = new NhanVien($row["msnv"], $row["ChucVu"], $row["DiaChi"], $row["SoDienThoai"]);
+                $nhanVien = new NhanVien($row["msnv"], $row["HoTenNV"],$row["ChucVu"], $row["DiaChi"], $row["SoDienThoai"]);
                 $arr[$row["mskh"]] = $nhanVien;
             }
         }

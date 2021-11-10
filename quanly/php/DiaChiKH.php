@@ -2,20 +2,20 @@
 namespace quanly\php\db;
 class DiaChiKH{
 
-    public $maDc;
+    public $madc;
     public $diaChi;
     public $mskh;
 
-    public function __construct($maDc, $diaChi, $mskh){
-        $this->maDc = $maDc;
+    public function __construct($madc, $diaChi, $mskh){
+        $this->madc = $madc;
         $this->diaChi = $diaChi;
         $this->mskh = $mskh;
     }
 
-    public static function them($maDc, $diaChi, $mskh){
+    public static function them($madc, $diaChi, $mskh){
         $conn = getConnection();
 
-        $sql = "insert into hinhhanghoa values ('".$maDc."','".$diaChi."','".$mskh."')";
+        $sql = "insert into hinhhanghoa values ('".$madc."','".$diaChi."','".$mskh."')";
 
         $result = $conn->query($sql);
 
@@ -23,10 +23,10 @@ class DiaChiKH{
         return $result;
     }
 
-    public static function xoa($maDc){
+    public static function xoa($madc){
         $conn = getConnection();
 
-        $sql = "delete from diachikh where madc = '".$maDc."'";
+        $sql = "delete from diachikh where madc = '".$madc."'";
 
         $result = $conn->query($sql);
 
@@ -34,16 +34,16 @@ class DiaChiKH{
         return $result;
     }
 
-    public static function tim($maDc){
+    public static function tim($madc){
         $conn = getConnection();
 
-        $sql = "select * from diachikh where madc = '".$maDc."'";
+        $sql = "select * from diachikh where madc = '".$madc."'";
 
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0){
             $row = $result->fetch_assoc();
-            $diaChi = new DiaChiKH($row["madc"], $row["diachi"], $row["mskh"]);
+            $diaChi = new DiaChiKH($row["madc"], $row["DiaChi"], $row["mskh"]);
 
             $result->close();;
             $conn->close();
@@ -55,17 +55,19 @@ class DiaChiKH{
         return "";
     }
 
-    public static function timTatCa(){
+    public static function timTatCa($mskh){
         $conn = getConnection();
 
-        $sql = "select * from diachikh";
+        $sql = "select * from diachikh where mskh = '".$mskh."'";
 
         $result = $conn->query($sql);
-        $arr = array([]);
+        $arr = [];
+        $count = 0;
         if($result->num_rows > 0){
             while ($row = $result->fetch_assoc()){
-                $diaChi = new DiaChiKH($row["madc"], $row["diachi"], $row["mskh"]);
-                $arr[$row["mskh"]] = $diaChi;
+                $diaChi = new DiaChiKH($row["madc"], $row["DiaChi"], $row["mskh"]);
+                $arr[$count] = json_encode($diaChi, 256);
+                $count++;
             }
         }
         $result->close();

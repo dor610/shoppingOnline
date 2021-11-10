@@ -205,8 +205,7 @@ body{
     width: 50%;
     height: 500px;
     background-color: white;
-    padding: 10px;
-    padding-top: 0;
+    padding: 0 10px 10px;
 }
 
 .container > div:last-child > div:first-child > div:first-child{

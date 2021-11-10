@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "JetBrains Mono Thin", Calibri, serif;
+}
+
+.main-container{
+    display: grid;
+    grid-template-columns: 250px calc(100vw - 250px);
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #F5F3F3;
+}
+.nav-bar > nav > div:first-child{
+    grid-column: 2;
+    color: white;
+}

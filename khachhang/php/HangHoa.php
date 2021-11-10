@@ -133,17 +133,16 @@ class HangHoa{
         if($result->num_rows > 0){
             $maxMshh = ($result->fetch_assoc())['mshh'];
             $maxMshh = (intval($maxMshh) +1)."";
-            if(strlen($maxMshh)< 10) $maxMshh = "0000".$maxMshh;
-            else if(strlen($maxMshh < 100)) $maxMshh = "000".$maxMshh;
-            else if(strlen($maxMshh) < 1000) $maxMshh = "00".$maxMshh;
-            else if(strlen($maxMshh) < 10000) $maxMshh = "0".$maxMshh;
+            if(strlen($maxMshh) === 1) $maxMshh = "0000".$maxMshh;
+            else if(strlen($maxMshh) === 2) $maxMshh = "000".$maxMshh;
+            else if(strlen($maxMshh) === 3) $maxMshh = "00".$maxMshh;
+            else if(strlen($maxMshh) === 4) $maxMshh = "0".$maxMshh;
 
             return $maxMshh;
         }
 
         return "00000";
     }
-
     public static function timHinh($mshh){
         $conn = getConnection();
         $sql = "select tenhinh from hinhhanghoa where mshh = '".$mshh."'";

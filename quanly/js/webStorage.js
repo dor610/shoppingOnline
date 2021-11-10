@@ -77,3 +77,20 @@ let sendPostRequest = function(url, data, func){
     }
     xhr.send(data);
 }
+
+let uploadImage = function (url, data, func){
+    const xhr = new XMLHttpRequest();
+
+/*  let formData = new FormData();
+    formData.append("file" , file);
+    formData.append("idimg", "3");
+    console.log(formData);*/
+
+    xhr.open('POST', url, true);
+    xhr.onload = function (){
+        if(this.status === 200) {
+            func(this.response);
+        }
+    }
+    xhr.send(data);
+}

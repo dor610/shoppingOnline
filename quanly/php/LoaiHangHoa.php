@@ -1,5 +1,8 @@
 <?php
 namespace quanly\php\db;
+
+require_once "connection.php";
+
 class LoaiHangHoa{
     public $maLoaiHang;
     public $tenLoaiHang;
@@ -23,7 +26,7 @@ class LoaiHangHoa{
     public static function xoa($maLoaiHang){
         $conn = getConnection();
 
-        $sql = "delete from loaihanghoa where maloaihang = '".$maLoaiHang."'";
+        $sql = "delete from loaihanghoa where MaLoaiHang = '".$maLoaiHang."'";
 
         $result = $conn->query($sql);
 
@@ -31,16 +34,16 @@ class LoaiHangHoa{
         return $result;
     }
 
-    public static function tim($maLoaihang){
+    public static function tim($maLoaiHang){
         $conn = getConnection();
 
-        $sql = "select * from loaihanghoa where maloaihang = '".$maLoaihang."'";
+        $sql = "select * from loaihanghoa where MaLoaiHang = '".$maLoaiHang."'";
 
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0){
             $row = $result->fetch_assoc();
-            $loaiHang = new LoaiHangHoa($row["maloaihang"], $row["tenhanghoa"]);
+            $loaiHang = new LoaiHangHoa($row["MaLoaiHang"], $row["TenLoaiHang"]);
 
             $result->close();;
             $conn->close();
@@ -58,11 +61,13 @@ class LoaiHangHoa{
         $sql = "select * from loaihanghoa";
 
         $result = $conn->query($sql);
-        $arr = array([]);
+        $arr = [];
+        $count = 0;
         if($result->num_rows > 0){
             while ($row = $result->fetch_assoc()){
-                $loaiHang = new LoaiHangHoa($row["maloaihang"], $row["tenhanghoa"]);
-                $arr[$row["mskh"]] = $loaiHang;
+                $loaiHang = new LoaiHangHoa($row["MaLoaiHang"], $row["TenLoaiHang"]);
+                $arr[$count] = json_encode($loaiHang, 256);
+                $count++;
             }
         }
         $result->close();
@@ -74,4 +79,3 @@ class LoaiHangHoa{
 
     }
 }
-

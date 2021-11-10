@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <form>
+      <input id="hihi" type="file" accept="image/png" multiple>
+  </form>
+    <button id="dd">click</button>
+<script>
+    const hiah = document.getElementById("hihi");
+    document.getElementById("dd").addEventListener("click", () =>{
+        let a = hiah.files;
+        /*Array.from(a).forEach(b =>{
+            console.log(b);
+        });
+        //console.log(a);*/
+        if(hiah.files.length === 0){
+            console.log("chua co file");
+        } else hia();
+    });
+    function hia(){
+
+       // console.log(hiah.files.item(1));
+        const xmlHttpRequest = new XMLHttpRequest();
+
+        let file = hiah.files.item(0);
+        let fileName = file.name;
+        let formData = new FormData();
+        formData.append("file" , file);
+        formData.append("idimg", "3");
+        console.log(formData);
+
+        xmlHttpRequest.open('POST', "../php/uploadItemImage.php", true);
+        xmlHttpRequest.onload = function (){
+            if(this.status === 200) {
+                console.log(this.response);
+            }
+        }
+        xmlHttpRequest.send(formData);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quản Lý Sản Phẩm - Website Bán Hàng</title>
+    <link rel="stylesheet" href="../css/product.css" type="text/css">
+    <link rel="stylesheet" href="../css/template.css" type="text/css">
+    <link rel="stylesheet" href="../css/navBar.css" type="text/css">
+</head>
+<body>
+<div id="main-container" class="main-container">
+    <div class="nav-bar">
+        <div class="staff-info">
+            <div>
+                <img src="../img/staffIcon.png">
+            </div>
+            <div id="staff-name" class="staff-name">Nguyễn Hoàng Khang</div>
+        </div>
+        <nav>
+            <div class="nav-bar-option"><a href="dashboard.html">Tổng Quan</a></div>
+            <div class="nav-bar-option"><a href="order.html">Đơn Hàng</a></div>
+            <div class="nav-bar-option">Sản Phẩm</div>
+            <div class="nav-bar-option"><a href="customer.html">Khách Hàng</a></div>
+            <div class="nav-bar-option"><a href="staff.html">Nhân Viên</a></div>
+        </nav>
+        <div class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 631.18 205.2">
+                <defs>
+                    <style>
+                        .cls-1{fill:pink;}
+                        .cls-2{fill:#fff;stroke:#fff;stroke-miterlimit:10;stroke-width:5px;}
+                        .cls-3{fill:#87ceeb}
+                        .cls-4{fill: #fff}
+                    </style>
+                </defs>
+                <path class="cls-4" d="M1807.38,1268.29v5.4c0,20.1-3,45.6-30.9,45.6-25.2,0-31.5-18.9-31.5-48.9v-111c0-33,12.6-44.7,31.8-44.7,27.6,0,29.7,25.8,29.7,45v5.7h-5.1v-6c0-22.5-4.5-40.2-24.9-40.2-13.2,0-26.4,6.9-26.4,39.3v111.9c0,34.5,9.6,44.4,26.7,44.4,20.4,0,25.5-16.8,25.5-41.1v-5.4Z" transform="translate(-1744.98 -1114.39)"/>
+                <path class="cls-4" d="M1846.68,1117.09h5.1v195.3h47.7l-1.2,4.5h-51.6Z" transform="translate(-1744.98 -1114.39)"/>
+                <path class="cls-1" d="M1994.28,1159.69v112.5c0,30.6-8.11,47.4-32.4,47.4-21,0-32.41-12-32.41-46.8V1160c0-36.6,15.6-45.6,32.7-45.6S1994.28,1122.79,1994.28,1159.69Zm-59.71,1.8V1271c0,28.2,6.6,44.1,27.31,44.1,23.69,0,27.29-20.4,27.29-41.7v-112.2c0-26.4-6.6-42.3-27.29-42.3C1944.77,1118.89,1934.57,1130,1934.57,1161.49Z" transform="translate(-1744.98 -1114.39)"/>
+                <path class="cls-4" d="M2050.67,1121.59H2021v-4.5h64.5v4.5h-29.7v195.3h-5.1Z" transform="translate(-1744.98 -1114.39)"/>
+                <path class="cls-4" d="M2117.57,1117.09h5.1v89.7h54v-89.7h5.1v199.8h-5.1v-105.6h-54v105.6h-5.1Z" transform="translate(-1744.98 -1114.39)"/>
+                <path class="cls-3" d="M2279.86,1211h-42.3v101.4h47.7l-1.2,4.5h-51.6v-199.8h50.7v4.5h-45.6v84.9h42.3Z" transform="translate(-1744.98 -1114.39)"/>
+                <path class="cls-4" d="M2320.06,1269.49v7.8c0,23.7,6.6,37.5,25.5,37.5,20.4,0,25.5-15.6,25.5-45,0-28.8-5.1-41.4-25.2-57.9-19.2-15.6-26.7-27-26.7-57.3,0-24.6,7.8-39.9,27.3-39.9s26.7,12.6,26.7,39v7.8h-5.1v-7.8c0-23.7-6-34.5-21.9-34.5-15.6,0-21.9,12.9-21.9,35.1,0,26.1,4.2,36.6,23.4,52.2,23.1,18.9,28.5,32.4,28.5,63.3,0,24.6-2.7,49.5-30.9,49.5-28.5,0-30.3-25.5-30.3-44.4v-5.4Z" transform="translate(-1744.98 -1114.39)"/>
+                <line class="cls-2" x1="0.02" y1="94.11" x2="601.02" y2="94.11"/>
+            </svg>
+        </div>
+    </div>
+    <div class="content-container">
+        <div class="header">
+            <div id="tab-title">Danh Sách Sản Phẩm</div>
+            <div>
+                <div id="add-btn">Thêm</div>
+                <div>
+                    <input id="search-content" type="text" placeholder="Nhập tên sản phẩm">
+                    <div id="search-btn">Tìm</div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div id="product-list-tab">
+                <div class="list-header">
+                    <div>Sản Phẩm</div>
+                    <div>Đơn Giá</div>
+                    <div>Tổng Số Lượng</div>
+                    <div>Chỉnh Sửa</div>
+                    <div>Xoá</div>
+                </div>
+                <div id="item-list-box" class="item-list">
+                    <div>
+                        <div>
+                            <img src="">
+                            <div>ten san pham</div>
+                        </div>
+                        <div>Đơn Giá</div>
+                        <div>Tổng Số Lượng</div>
+                        <div><button>Chỉnh Sửa</button></div>
+                        <div><button>Xoá</button></div>
+                    </div>
+                    <div>
+                        <div>
+                            <img src="">
+                            <div>ten san pham</div>
+                        </div>
+                        <div>Đơn Giá</div>
+                        <div>Tổng Số Lượng</div>
+                        <div><button>Chỉnh Sửa</button></div>
+                        <div><button>Xoá</button></div>
+                    </div>
+                    <div>
+                        <div>
+                            <img src="">
+                            <div>ten san pham</div>
+                        </div>
+                        <div>Đơn Giá</div>
+                        <div>Tổng Số Lượng</div>
+                        <div><button>Chỉnh Sửa</button></div>
+                        <div><button>Xoá</button></div>
+                    </div>
+                    <div>
+                        <div>
+                            <img src="">
+                            <div>ten san pham</div>
+                        </div>
+                        <div>Đơn Giá</div>
+                        <div>Tổng Số Lượng</div>
+                        <div><button>Chỉnh Sửa</button></div>
+                        <div><button>Xoá</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="adding-item-box" class="adding-item-box hiding-box">
+            <div>
+                <div class="adding-box-label">Thêm sản phẩm</div>
+                <form class="adding-item-form">
+                    <div>
+                        <div>
+                            <div>
+                                <div>Tên sản phẩm</div>
+                                <input id="adding-box-item-name" type="text" placeholder="Nhập tên sản phẩm">
+                            </div>
+                            <div>
+                                <div>Giá sản phẩm</div>
+                                <input id="adding-box-item-price" type="text" placeholder="Đơn vị VND">
+                            </div>
+                            <div>
+                                <div>Loại sản phẩm</div>
+                                <div>
+                                    <div id="adding-form-item-type-label">Chọn loại sản phẩm</div>
+                                    <span id="down-arrow" class="down-arrow">
+                                        <svg xmlns="http://www.w3.org/2000/svg" id="Layer_6" data-name="Layer 6" viewBox="0 0 456.99 403.05">
+                                            <defs>
+                                                <style>
+                                                    .down-arrow-1,
+                                                    .down-arrow-2{fill:none;stroke-linecap:round;stroke-miterlimit:10;stroke-width:29px;}
+                                                    .down-arrow-1{stroke:deepskyblue;}
+                                                    .down-arrow-2{stroke:pink;}
+                                                </style>
+                                            </defs>
+                                            <line class="down-arrow-1" x1="14.5" y1="14.5" x2="228.5" y2="388.5"/>
+                                            <line class="down-arrow-1" x1="442.49" y1="14.55" x2="228.49" y2="388.55"/>
+                                            <line class="down-arrow-2" x1="92.5" y1="14.5" x2="361.5" y2="14.5"/>
+                                        </svg>
+                                    </span>
+                                    <div id="item-type-list" class="item-type-list">
+                                        <!--<div>Loại 1</div>-->
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <span>Ảnh sản phẩm</span>
+                                <label id="item-img-label" for="item-img" class="input-item-img-label">Chọn ảnh sản phẩm</label>
+                                <input id="item-img" type="file" accept="image/png" multiple>
+                            </div>
+                        </div>
+                        <div>
+                            <div>Chọn loại kích cỡ của sản phẩm: </div>
+                            <div id="size-box">
+                                <!--<div>
+                                    <input type="radio"> <span>m</span> <span>Số lượng</span> <input type="text">
+                                </div>-->
+
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <span>Mô tả sản phẩm: </span>
+                        <textarea id="product-description" rows="4" cols="100"></textarea>
+                    </div>
+                </form>
+                <div id="adding-form-btn" class="form-btn">
+                    <button id="adding-form-submit-btn">Thêm</button>
+                    <button id="adding-form-cancel-btn">Huỷ</button>
+                </div>
+            </div>
+        </div>
+        <div id="editing-item-box" class="editing-item-box hiding-box">
+            <div>
+                <div class="editing-box-label">Chỉnh sửa sản phẩm</div>
+                <form class="editing-item-form">
+                    <div>
+                        <div>
+                            <div>
+                                <div>Tên sản phẩm</div>
+                                <input id="editing-box-item-name" type="text" placeholder="Nhập tên sản phẩm">
+                            </div>
+                            <div>
+                                <div>Giá sản phẩm</div>
+                                <input id="editing-box-item-price" type="text" placeholder="Đơn vị VND">
+                            </div>
+                            <div>
+                                <div>Loại sản phẩm</div>
+                                <div>
+                                    <div id="editing-form-item-type-label">Chọn loại sản phẩm</div>
+                                    <span id="editing-box-down-arrow" class="down-arrow">
+                                        <svg xmlns="http://www.w3.org/2000/svg" id="Layer_6" data-name="Layer 6" viewBox="0 0 456.99 403.05">
+                                            <defs>
+                                                <style>
+                                                    .down-arrow-1,
+                                                    .down-arrow-2{fill:none;stroke-linecap:round;stroke-miterlimit:10;stroke-width:29px;}
+                                                    .down-arrow-1{stroke:deepskyblue;}
+                                                    .down-arrow-2{stroke:pink;}
+                                                </style>
+                                            </defs>
+                                            <line class="down-arrow-1" x1="14.5" y1="14.5" x2="228.5" y2="388.5"/>
+                                            <line class="down-arrow-1" x1="442.49" y1="14.55" x2="228.49" y2="388.55"/>
+                                            <line class="down-arrow-2" x1="92.5" y1="14.5" x2="361.5" y2="14.5"/>
+                                        </svg>
+                                    </span>
+                                    <div id="editing-box-item-type-list" class="item-type-list">
+                                        <!--<div>Loại 1</div>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>Chọn loại kích cỡ của sản phẩm: </div>
+                            <div id="editing-box-item-size-box">
+                                <!--<div>
+                                    <input type="radio"> <span>m</span> <span>Số lượng</span> <input type="text">
+                                </div>-->
+
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div>Ảnh sản phẩm:</div>
+                        <div id="editing-box-item-img-box" class="editing-img-box">
+                            <div>
+                                <img src="">
+                                <button>Xoá</button>
+                            </div>
+                            <div>
+                                <img src="">
+                                <button>Xoá</button>
+                            </div>
+                        </div>
+                        <div>
+                            <span>Thêm ảnh cho sản phẩm</span>
+                            <label id="editing-box-item-img-label" for="editing-box-item-img" class="input-item-img-label">Chọn ảnh sản phẩm</label>
+                            <input id="editing-box-item-img" type="file" accept="image/png" multiple>
+                        </div>
+                    </div>
+                    <div>
+                        <span>Mô tả sản phẩm: </span>
+                        <textarea id="editing-box-item-description" rows="4" cols="100"></textarea>
+                    </div>
+                </form>
+                <div id="editing-form-btn" class="form-btn">
+                    <button id="editing-box-submit-btn">Chỉnh sửa</button>
+                    <button id="editing-box-cancel-btn">Huỷ</button>
+                </div>
+
+            </div>
+        </div>
+        <div id="deleting-item-box" class="deleting-item-box hiding-box">
+            <div>
+                <div>Bạn có chắc muốn xoá sản phẩm?</div>
+                <div>Mọi thông tin của hàng hoá liên quan đến hoá đơn vẫn sẽ được giữ lại.</div>
+                <div class="form-btn deleting-form-btn" >
+                    <button id="deleting-form-submit-btn">Xoá</button>
+                    <button id="deleting-form-cancel-btn">huỷ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../js/webStorage.js"></script>
+<script src="../js/navBar.js"></script>
+<script src="../js/product.js"></script>
+</body>
+</html>

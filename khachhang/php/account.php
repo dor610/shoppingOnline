@@ -1,7 +1,7 @@
 <?php
 
-require_once "KhachHang.php";
-require_once "DiaChiKH.php";
+use \khachhang\php\db\KhachHang;
+use \khachhang\php\db\DiaChiKH;
     session_start();
     $type = $_POST['type'];
 
@@ -9,11 +9,11 @@ require_once "DiaChiKH.php";
         $userName = $_POST['userName'];
         $password = $_POST['password'];
 
-        $khachHang = \khachhang\php\db\KhachHang::tim($userName);
+        $khachHang = KhachHang::tim($userName);
 
         if($khachHang != null){
 
-            $diaChiKH = \khachhang\php\db\DiaChiKH::tim($khachHang->mskh);
+            $diaChiKH = DiaChiKH::tim($khachHang->mskh);
 
             $response['mskh'] = $khachHang->mskh;
             $response['email'] = $khachHang->email;
@@ -41,17 +41,17 @@ require_once "DiaChiKH.php";
         $diaChi = $_POST['diaChi'];
         $email = $_POST['email'];
 
-        $madc = \khachhang\php\db\DiaChiKH::taoMaDC();
+        $madc = DiaChiKH::taoMaDC();
 
-        $result = \khachhang\php\db\KhachHang::them($userName, $name, $sdt, $email);
-        if (\khachhang\php\db\DiaChiKH::them($madc, $diaChi, $userName) === false) $result = false;
+        $result = KhachHang::them($userName, $name, $sdt, $email);
+        if (DiaChiKH::them($madc, $diaChi, $userName) === false) $result = false;
 
         if($result == true){
             $response['isSuccess'] = true;
             echo json_encode($response, JSON_UNESCAPED_UNICODE);
         }else{
-           // \khachhang\php\db\KhachHang::xoa($userName);
-            //\khachhang\php\db\DiaChiKH::xoa($madc);
+           // KhachHang::xoa($userName);
+            //DiaChiKH::xoa($madc);
             $response['isSuccess'] = false;
             echo json_encode($response, JSON_UNESCAPED_UNICODE);
         }
@@ -76,6 +76,6 @@ require_once "DiaChiKH.php";
 
     if($type === 'getAddresses'){
         $mskh = $_POST['mskh'];
-        $result = \khachhang\php\db\DiaChiKH::timTatCa($mskh);
+        $result = DiaChiKH::timTatCa($mskh);
         echo json_encode($result, 256);
     }

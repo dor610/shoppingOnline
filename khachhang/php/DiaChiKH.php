@@ -3,20 +3,20 @@ namespace khachhang\php\db;
 require_once "connection.php";
 class DiaChiKH{
 
-    public $maDc;
+    public $madc;
     public $diaChi;
     public $mskh;
 
-    public function __construct($maDc ,$diaChi, $mskh){
-        $this->maDc = $maDc;
+    public function __construct($madc ,$diaChi, $mskh){
+        $this->madc = $madc;
         $this->diaChi = $diaChi;
         $this->mskh = $mskh;
     }
 
-    public static function them($maDc, $diaChi, $mskh){
+    public static function them($madc, $diaChi, $mskh){
         $conn = getConnection();
 
-        $sql = "insert into diachikh values ('".$maDc."','".$diaChi."','".$mskh."')";
+        $sql = "insert into diachikh values ('".$madc."','".$diaChi."','".$mskh."')";
 
         $result = $conn->query($sql);
 
@@ -24,10 +24,10 @@ class DiaChiKH{
         return $result;
     }
 
-    public static function xoa($maDc){
+    public static function xoa($madc){
         $conn = getConnection();
 
-        $sql = "delete from diachikh where madc = '".$maDc."'";
+        $sql = "delete from diachikh where madc = '".$madc."'";
 
         $result = $conn->query($sql);
 
@@ -80,20 +80,20 @@ class DiaChiKH{
 
     }
 
-    public static function taoMaDC(){
+    public static function taomadc(){
         $conn = getConnection();
         $sql = "SELECT madc from diachikh ORDER by madc DESC LIMIT 1";
         $result = $conn->query($sql);
 
         if($result->num_rows > 0){
-            $maxMadc = ($result->fetch_assoc())['madc'];
-            $maxMadc = (intval($maxMadc) +1)."";
-            if(strlen($maxMadc)< 10) $maxMadc = "0000".$maxMadc;
-            else if(strlen($maxMadc < 100)) $maxMadc = "000".$maxMadc;
-            else if(strlen($maxMadc) < 1000) $maxMadc = "00".$maxMadc;
-            else if(strlen($maxMadc) < 10000) $maxMadc = "0".$maxMadc;
+            $maxmadc = ($result->fetch_assoc())['madc'];
+            $maxmadc = (intval($maxmadc) +1)."";
+            if(strlen($maxmadc) === 1) $maxmadc = "0000".$maxmadc;
+            else if(strlen($maxmadc) === 2) $maxmadc = "000".$maxmadc;
+            else if(strlen($maxmadc) === 3) $maxmadc = "00".$maxmadc;
+            else if(strlen($maxmadc) === 4) $maxmadc = "0".$maxmadc;
 
-            return $maxMadc;
+            return $maxmadc;
         }
 
         return "00000";

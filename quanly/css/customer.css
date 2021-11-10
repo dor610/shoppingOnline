@@ -1,0 +1,386 @@
+
+.content-container{
+    position: relative;
+}
+
+.blue-btn, .pink-btn{
+    outline: none;
+    font-size: 18px;
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.blue-btn{
+    border: 1px solid deepskyblue;
+    color: deepskyblue;
+}
+
+.pink-btn{
+    border: 1px solid pink;
+    color: pink;
+}
+
+.blue-btn:hover{
+    color: white;
+    background-color: deepskyblue;
+}
+
+.pink-btn:hover{
+    color: white;
+    background-color: pink;
+}
+
+.disable-btn{
+    border-color: lightgray;
+    color: lightgray;
+}
+
+.disable-btn:hover{
+    color: lightgray;
+    background-color: white;
+}
+
+/*---------------------------------------------------------------------------*/
+
+.header{
+    display: flex;
+    flex-direction: column;
+    height:150px;
+    font-size: 20px;
+    width: 100%;
+}
+.header > div:first-child{
+    width: 100%;
+    height: 70px;
+    line-height: 70px;
+    padding-left: 30px;
+    font-size: 25px;
+    background-color: white;
+}
+
+.header > div:nth-child(2){
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 80px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.header > div:nth-child(2) > input{
+    grid-column: 2;
+    height: 50px;
+    padding-left: 20px;
+    font-size: 18px;
+    width: 90%;
+    border: 1px solid lightgray;
+    border-radius: 20px;
+    outline: none;
+}
+
+.header > div:nth-child(2) > div{
+    grid-column: 3;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    border: 1px solid deepskyblue;
+    background-color: white;
+    color: deepskyblue;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.header > div:nth-child(2) > div:hover{
+    background-color: deepskyblue;
+    color: white;
+    cursor: pointer;
+}
+
+/*-------------------------------------------------------------------------*/
+
+
+.customer-list-header{
+    width: calc(100% - 40px);
+    height: 50px;
+    margin: 10px;
+    background-color: white;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 15% 25% repeat(4, 15%);
+    font-size: 20px;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.customer-list-header > div{
+    text-align: center;
+}
+/*------------------------------------------------------------------*/
+
+.customer-list{
+    margin: 10px;
+    width: calc(100% - 20px);
+    height: calc(100vh - 230px);
+    background-color: white;
+    overflow-y: scroll;
+}
+
+.customer-list > div{
+    display: grid;
+    grid-template-columns: 15% 25% repeat(4, 15%);
+    font-size: 18px;
+    align-items: center;
+    text-align: center;
+    height: 80px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.customer-list > div:not(:last-child){
+    border-bottom: 1px solid lightgray;
+}
+
+/*------------------------------------------------------------------------------------------------*/
+
+.customer-info-box, .customer-order-box, .deleting-customer-box{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    backdrop-filter: blur(5px);
+}
+
+.customer-info-box > div, .customer-order-box > div, .deleting-customer-box > div{
+    width: 80%;
+    height: 80vh;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10vh;
+    padding:20px;
+    background-color: white;
+    box-shadow: 2px 2px 10px gray;
+}
+
+.box-title{
+    display: grid;
+    grid-template-columns: 80% auto;
+    width: calc(100%);
+    height: 50px;
+    font-size: 25px;
+    border-bottom: 1px solid lightgray;
+    line-height: 50px;
+}
+
+.box-title > button{
+    width: 100px;
+    height: 40px;
+    margin-bottom: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    outline: none;
+    border: 1px solid deepskyblue;
+    color: deepskyblue;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+.box-title > button:hover{
+
+}
+
+.customer-info-form{
+    padding: 30px;
+    overflow-y: auto;
+}
+
+.customer-info-form > div{
+    display: grid;
+    grid-template-columns: 40% auto;
+    width: 80%;
+    height: 60px;
+    gap: 10px;
+    line-height: 60px;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 20px;
+}
+
+.customer-info-form > div:not(:last-child){
+    border-bottom: 1px solid lightgray;
+}
+
+.customer-info-form > div> div:first-child{
+    padding-left: 20%;
+}
+
+
+
+.customer-info-form > div:last-child{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+}
+
+.customer-info-form > div:last-child > div:first-child{
+    width: 100%;
+    padding-left: 8%;
+    border-bottom: 1px solid lightgray;
+}
+
+.address-box{
+    height: auto;
+}
+
+.address-box > div{
+    padding-left: 8%;
+}
+/*--------------------------------------------------------------------------------------*/
+
+.customer-order-box > div{
+    width: 90%;
+    height: 90vh;
+    margin-top: 5vh;
+}
+
+.customer-order-list{
+    display: flex;
+    gap: 10px;
+    height: calc(100% - 50px);
+    flex-direction: column;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.order-element{
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 80px 80px 40px;
+    grid-template-areas: "madh mot"
+                         "madh hai"
+                         "diaChi diaChi";
+    width: 100%;
+    border-bottom: 1px solid gray;
+}
+
+.order-element > div:not(:last-child) > div {
+    padding: 10px;
+}
+
+.order-element > div > div > div:first-child{
+    font-size: 20px;
+}
+
+.order-element > div:first-child{
+    grid-area: madh;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 50% 20% auto;
+    align-items: center;
+    text-align: center;
+    border-right: 1px solid lightgray;
+}
+
+.order-element > div:nth-child(2){
+    grid-area: mot;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    text-align: center;
+    border-bottom: 1px solid lightgray;
+}
+
+.order-element > div:nth-child(3){
+    grid-area: hai;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, calc(100% / 3));
+    text-align: center;
+}
+
+.order-element > div:nth-child(2) > div, .order-element > div:nth-child(3) > div{
+    display: grid;
+    grid-template-rows: 50% 50%;
+    align-items: center;
+}
+
+.order-element > div:last-child{
+    grid-area: diaChi;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 20% auto;
+    align-items: center;
+    border-top: 1px solid lightgray;
+}
+
+.order-element > div:last-child > div{
+    height: 100%;
+    width: 100%;
+    line-height: 40px;
+    padding-left: 20px;
+}
+
+.order-element > div:first-child > div:first-child{
+    font-size: 25px;
+}
+.order-element > div:first-child > div:last-child{
+    color: deepskyblue;
+}
+
+.order-element  > div:last-child  > div:first-child{
+    font-size: 20px;
+}
+
+.order-element > div:last-child > div:not(:last-child),
+.order-element > div:nth-child(2) > div:not(:last-child),
+.order-element > div:nth-child(3) > div:not(:last-child){
+    border-right: 1px solid lightgray;
+}
+
+/*---------------------------------------------------------------------------------------*/
+
+.deleting-customer-box > div{
+    width: 500px;
+    height: 250px;
+    margin-top: 30vh;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.deleting-customer-box > div > div:first-child{
+    margin-top: 20px;
+    font-size: 25px;
+}
+.deleting-customer-box > div > div:nth-child(2){
+    color: pink;
+}
+
+.deleting-customer-box > div > div:last-child{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+    margin-top: 30px;
+}
+
+
+/*-----------------------------------------------------------------------------------------*/
+.hiding-box{
+    display: none;
+}

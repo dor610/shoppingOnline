@@ -24,6 +24,14 @@ if($type === 'isLogin'){
     else echo false;
 }
 
+if($type === "getStaff"){
+    $msnv = $_POST['msnv'];
+
+    $result = \quanly\php\db\NhanVien::tim($msnv);
+
+    echo json_encode($result, 256);
+}
+
 if($type === "getInfo"){
     $msnv = $_POST['msnv'];
     $nhanVien = \quanly\php\db\NhanVien::tim($msnv);

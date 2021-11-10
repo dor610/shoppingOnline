@@ -270,7 +270,6 @@ function loadData(){
     noti.classList.add("hidden");
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
         window.removeEventListener("scroll", loadData);
-        setPath();
         loadingIcon.classList.add("show-loading-icon");
         let xhr = new XMLHttpRequest();
         xhr.open("POST", "../php/product.php", true);

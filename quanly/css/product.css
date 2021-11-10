@@ -1,0 +1,540 @@
+.content-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    height:150px;
+    font-size: 20px;
+    width: 100%;
+}
+
+.header > div:first-child{
+    width: 100%;
+    height: 70px;
+    line-height: 70px;
+    padding-left: 30px;
+    font-size: 25px;
+    background-color: white;
+}
+
+.header > div:nth-child(2){
+    width: 100%;
+    height: 80px;
+    display: grid;
+    grid-template-columns: 10% 200px auto 10%;
+    align-items: center;
+}
+
+.header > div:nth-child(2) > div:nth-child(2){
+    grid-column: 3;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    padding-left: 20px;
+    gap: 30px;
+}
+
+.header > div:nth-child(2) > div:nth-child(2) > input{
+    height: 50px;
+    padding-left: 20px;
+    font-size: 18px;
+    width: 70%;
+    border: 1px solid lightgray;
+    border-radius: 20px;
+    outline: none;
+}
+
+.header > div:nth-child(2) > div:nth-child(2) > div{
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    border: 1px solid deepskyblue;
+    background-color: white;
+    color: deepskyblue;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.header > div:nth-child(2) > div:nth-child(2) > div:hover{
+    background-color: deepskyblue;
+    color: white;
+    cursor: pointer;
+}
+
+.header > div:nth-child(2) > div:first-child{
+    grid-column: 2;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    border: 1px solid pink;
+    background-color: white;
+    color: pink;
+    border-radius: 10px;
+    text-align: center;
+    margin-left: 90px;
+}
+.header > div:nth-child(2) > div:first-child:hover{
+    cursor: pointer;
+    background-color: pink;
+    color: white;
+}
+
+.content-container > div:nth-child(2){
+    width: calc(100% - 20px);
+    height: auto;
+    margin: 10px 10px 10px;
+    position: relative;
+}
+
+.list-header{
+    display: grid;
+    position: sticky;
+    top: 0;
+    grid-template-columns: 40% repeat(4, 15%);
+    font-size: 20px;
+    background-color: white;
+    width: calc(100% - 20px);
+    padding-right: 10px;
+    padding-left: 10px;
+    height: 50px;
+    align-items: center;
+    text-align: center;
+}
+.list-header > div{
+
+    align-items: center;
+}
+
+
+.item-list{
+    margin-top: 10px;
+    background-color: white;
+    width: 100%;
+    padding: 10px;
+    height: calc(100vh - 210px);
+    overflow-y: scroll;
+    font-size: 18px;
+    min-height: 200px;
+}
+
+.item-list > div{
+    display: grid;
+    grid-template-columns: 40% repeat(4, 15%);
+    width: 100%;
+    height: 100px;
+    border-bottom: 1px solid lightgray;
+    align-items: center;
+}
+
+.item-list > div > div:first-child{
+    display: flex;
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    align-items: center;
+}
+
+.item-list > div > div:first-child > img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 80%;
+}
+
+.item-list > div > div:first-child > div{
+    width: 60%;
+    height: 100px;
+}
+
+.item-list > div > div:first-child ~ div{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+.item-list button{
+    background-color: transparent;
+    outline: none;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    height: 30px;
+    width: 100px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.item-list button:hover{
+    border-color: pink;
+    color: pink;
+    cursor: pointer;
+}
+
+/*----------------------------------------------------------------------------*/
+
+.adding-item-box , .editing-item-box, .deleting-item-box{
+    position: absolute;
+    width: calc(100vw - 250px);
+    height: 100vh;
+    backdrop-filter: blur(5px);
+}
+.adding-item-box > div, .editing-item-box> div, .deleting-item-box > div{
+    width: 70vw;
+    margin-left: calc(15vw - 175px);
+    height: 80vh;
+    margin-top: 10vh;
+    background-color: white;
+    box-shadow: 2px 2px 10px gray;
+    padding:20px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+
+/*------------Adding box section-------------------*/
+
+.adding-box-label, .editing-box-label{
+    width: calc(100% - 60px);
+    height: 50px;
+    font-size: 25px;
+    border-bottom: 1px solid lightgray;
+    line-height: 50px;
+}
+
+.adding-item-form, .editing-item-form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 20px;
+}
+
+.adding-item-form > div:first-child, .editing-item-form > div:first-child{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 10px;
+    border-bottom: 1px solid lightgray;
+    padding:10px;
+}
+
+.adding-item-form > div:first-child > div,
+.editing-item-form > div:first-child > div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.adding-item-form > div:first-child > div:first-child ,
+.editing-item-form > div:first-child > div:first-child{
+    border-right: 1px solid lightgray;
+}
+
+.adding-item-form > div:first-child > div:first-child > div,
+.editing-item-form > div:first-child > div:first-child > div{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.adding-item-form > div:first-child > div:first-child > div:nth-child(3) > div:nth-child(2),
+.editing-item-form > div:first-child > div:first-child > div:nth-child(3) > div:nth-child(2){
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.adding-item-form > div:first-child > div:first-child > div:nth-child(3) > div:nth-child(2) > div:first-child,
+.editing-item-form > div:first-child > div:first-child > div:nth-child(3) > div:nth-child(2) > div:first-child{
+    width: calc(90% - 30px);
+    height: 40px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    padding-left: 20px;
+    font-size: 20px;
+    line-height: 40px;
+}
+
+.adding-item-form > div:first-child > div:first-child > div:nth-child(3) >div:nth-child(2),
+.editing-item-form > div:first-child > div:first-child > div:nth-child(3) >div:nth-child(2){
+    position: relative;
+}
+
+.adding-item-form > div:first-child > div:nth-child(2) > div:nth-child(2),
+.editing-item-form > div:first-child > div:nth-child(2) > div:nth-child(2){
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.adding-item-form > div:first-child > div:nth-child(2) > div:nth-child(2) > div,
+.editing-item-form > div:first-child > div:nth-child(2) > div:nth-child(2) > div{
+    display: grid;
+    grid-template-columns: 20% auto 100px 20% 30%;
+    align-items: center;
+    padding-bottom: 10px;
+}
+.adding-item-form > div:first-child > div:nth-child(2) > div:nth-child(2) > div:not(:last-child),
+.editing-item-form > div:first-child > div:nth-child(2) > div:nth-child(2) > div:not(:last-child){
+    border-bottom: 1px solid lightgray;
+}
+
+.adding-item-form > div:nth-child(2),
+.editing-item-form > div:nth-child(3){
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+/*---------------------------------------------------------*/
+
+input[type=file]{
+    display: none;
+}
+
+input[type=radio]{
+    width: 20px;
+    display: block;
+    margin-left: calc(100% - 30px);
+}
+
+input[type=text]{
+    height: 40px;
+    width: 90%;
+    outline: none;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    padding-left: 20px;
+    font-size: 18px;
+}
+
+textarea{
+    outline: none;
+    border-radius: 20px;
+    border-color: lightgray;
+    padding: 20px;
+}
+
+.form-btn{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.form-btn button{
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    font-size: 20px;
+    background-color: transparent;
+    outline: none;
+    border:1px solid lightgray;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
+
+.form-btn button:first-child:hover{
+    border-color: deepskyblue;
+    color: deepskyblue;
+}
+.form-btn button:nth-child(2):hover{
+    border-color: pink;
+    color: pink;
+}
+
+.down-arrow{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    transition: transform 0.5s ease-out;
+}
+
+.up-arrow{
+    transform: rotate(180deg);
+}
+
+
+.item-type-list{
+    position: absolute;
+    top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: white;
+    width: 50vw;
+    box-shadow: 2px 2px 5px gray;
+    left: 0;
+    height: 0;
+    transition: height 0.5s;
+    overflow: hidden;
+}
+
+.item-type-list > div{
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    width: auto;
+    border: 1px solid lightgray;
+    margin: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.item-type-list > div:hover{
+    border-color: pink;
+    color: pink;
+}
+
+.show-item-type-list{
+    height: auto;
+}
+
+
+.input-item-img-label{
+    display: block;
+    width: 90%;
+    height: 40px;
+    border-radius: 10px;
+    background-color: rgba(0, 191, 255, 0.5);
+    color: white;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+}
+
+/*-----------------------editing box section--------------------*/
+.editing-item-form > div:nth-child(2){
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 10px;
+}
+
+.editing-img-box{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    gap: 10px;
+}
+
+.editing-img-box > div{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: 50%;
+    height: 100px;
+    align-items: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.editing-img-box > div > button{
+    background-color: white;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    color: pink;
+    font-size: 18px;
+    outline: none;
+    border: 1px solid pink;
+    border-radius: 10px;
+    height: 40px;
+    width: 100px;
+    cursor: pointer;
+}
+
+.editing-img-box > div > button:hover{
+    color: white;
+    background-color: pink;
+}
+
+.editing-img-box > div > img{
+    height: 90px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.editing-item-form > div:nth-child(2) > div:nth-child(3) >label{
+    width: 100%;
+
+}
+
+
+
+
+
+
+/*----------------------deleting box section----------------------*/
+
+
+.deleting-item-box > div{
+      width: 400px;
+      margin-left: calc(50% - 200px);
+      height: 200px;
+      margin-top: 30vh;
+      background-color: white;
+      box-shadow: 2px 2px 10px gray;
+      padding:20px;
+      overflow: hidden;
+}
+
+.deleting-item-box > div > div:first-child{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 22px;
+}
+
+.deleting-item-box > div > div:nth-child(2){
+    color: rgba(0, 191, 255, 0.5);
+}
+
+
+.deleting-form-btn{
+    width: 80%;
+}
+
+.deleting-form-btn > button:first-child{
+    color: pink;
+    border: 1px solid pink;
+}
+
+.deleting-form-btn > button:nth-child(2){
+    color: deepskyblue;
+    border: 1px solid deepskyblue;
+}
+
+.deleting-form-btn > button:first-child:hover{
+    color: white;
+    background-color: pink;
+}
+
+.deleting-form-btn > button:nth-child(2):hover{
+    color: white;
+    background-color: deepskyblue;
+}
+
+
+/*----------------------------------------------------------------*/
+
+.hiding-box{
+    display: none;
+}

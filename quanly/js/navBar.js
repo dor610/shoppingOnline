@@ -2,7 +2,9 @@
 
 
 window.addEventListener("load", ()=>{
-    if(!getData('isLoggedin')){
+
+    //console.log(getData('loggedIn'));
+    if(!getData('loggedIn')){
         location.href = "../html/login.html";
     }
 });

@@ -17,7 +17,7 @@ class KichCoHangHoa{
 
     static function getKichCoHangHoa($mshh){
         $conn = getConnection();
-        $sql = "SELECT kichco.mskc, mshh, SoLuong, kichco.TenKichCo from kichcohanghoa JOIN kichco on kichcohanghoa.mskc = kichco.mskc WHERE mshh = ".$mshh;
+        $sql = "SELECT kichco.mskc, mshh, SoLuong, kichco.TenKichCo from kichcohanghoa JOIN kichco on kichcohanghoa.mskc = kichco.mskc WHERE mshh = '".$mshh."'";
 
         $result = $conn->query($sql);
         $arr = Array([]);

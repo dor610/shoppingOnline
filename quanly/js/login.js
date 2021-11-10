@@ -18,10 +18,10 @@ function login(event){
             console.log("Chưa được");
         }else {
             console.log(res);
-            //setUserInfor(JSON.parse(res));
+            setUserInfor(JSON.parse(res));
 
 
-            //location.href = "../html/dashboard.html";
+            location.href = "../html/dashboard.html";
         }
     });
 }
