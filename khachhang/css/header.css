@@ -3,6 +3,11 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body{
+    background-color: #F5F3F3;
+}
+
 button{
     border-radius: 20px;
 }
@@ -18,7 +23,7 @@ button{
     font-family: "JetBrains Mono Thin", "Times New Roman";
     position: sticky;
     top: 0;
-    z-index: 2;
+    z-index: 10;
     padding-left: 5%;
     padding-right: 5%;
     box-shadow: 0 0 5px gray;
@@ -75,7 +80,7 @@ a{
 
 .account-nav-bar{
     position: absolute;
-    z-index: 5;
+    z-index: 10;
     left: -80px;
     top: 39px;
     box-shadow: 1px 2px 3px gray;
@@ -151,4 +156,123 @@ a{
 
 .hidden{
     display: none;
+}
+
+button{
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+
+input[type=text], input[type=date]{
+    height: 40px;
+    width: 90%;
+    outline: none;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    padding-left: 20px;
+    font-size: 18px;
+}
+
+.blue-btn, .pink-btn{
+    outline: none;
+    font-size: 18px;
+    width: 100px;
+    height: 50px;
+    border-radius: 20px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.long-btn{
+    width: 200px;
+}
+
+.blue-btn{
+    border: 1px solid deepskyblue;
+    color: deepskyblue;
+}
+
+.pink-btn{
+    border: 1px solid pink;
+    color: pink;
+}
+
+.blue-btn:hover{
+    color: white;
+    background-color: deepskyblue;
+}
+
+.pink-btn:hover{
+    color: white;
+    background-color: pink;
+}
+
+.disable-btn{
+    border-color: lightgray;
+    color: lightgray;
+}
+
+.disable-btn:hover{
+    color: lightgray;
+    background-color: white;
+}
+
+.box-title{
+    display: grid;
+    grid-template-columns: 80% auto;
+    width: calc(100%);
+    height: 50px;
+    font-size: 25px;
+    border-bottom: 1px solid lightgray;
+    line-height: 50px;
+}
+
+.box-title > button{
+    width: 100px;
+    height: 40px;
+    margin-bottom: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    outline: none;
+    border: 1px solid deepskyblue;
+    color: deepskyblue;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+
+input[type=file]{
+    display: none;
+}
+
+input[type=radio]{
+    width: 20px;
+    display: block;
+    margin-left: calc(100% - 30px);
+}
+
+textarea{
+    outline: none;
+    border-radius: 20px;
+    border-color: lightgray;
+    padding: 20px;
+}
+
+.down-arrow{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    transition: transform 0.5s ease-out;
+}
+
+.up-arrow{
+    transform: rotate(180deg);
 }

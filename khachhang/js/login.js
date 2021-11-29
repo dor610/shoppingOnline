@@ -93,12 +93,10 @@ let submitLoginForm = (event) =>{
             }
             let nextTarget = getData("nextTarget");
             removeData('cart');
-            notify("Đăng Nhập Thành Công!");
-            setTimeout(()=>{
-                if(nextTarget){
-                    location.href = "../html/"+nextTarget+".html";
-                }else location.href = "../html/home.html";
-            }, 2000);
+            alert("Đăng Nhập Thành Công!");
+            if(nextTarget){
+                location.href = "../html/"+nextTarget+".html";
+            }else location.href = "../html/home.html";
         }
     });
 }
@@ -120,10 +118,8 @@ let submitRegForm = (event) =>{
 
         if (res.isSuccess === true){
             setData('nextPage', 'login');
-            notify("Đăng Ký Thành Công");
-            setTimeout(() =>{
-                window.location.href = 'login.html';
-            },2000);
+            alert("Đăng Ký Thành Công");
+            window.location.href = 'login.html';
         }
     });
 }

@@ -1,0 +1,324 @@
+
+.content{
+    width: 100%;
+    height: calc(100vh - 150px);
+    padding: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.content > div:first-child{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    gap: 10px;
+    /*background-color: white;*/
+}
+
+.content > div:first-child > div{
+    font-size: 20px;
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid white;
+    transition: border 0.3s, color 0.3s;
+    cursor: pointer;
+}
+
+.content > div:first-child > div:hover{
+    border: 1px solid deepskyblue;
+    color: deepskyblue;
+}
+
+.active-btn{
+    color: deepskyblue;
+}
+
+.content > div:nth-child(2){
+    width: 100%;
+    height: 50px;
+    display: grid;
+    grid-template-columns: 14% 24% 24% 24% 14% ;
+    align-items: center;
+    text-align: center;
+    margin-top: 10px;
+    padding-right: 20px;
+    font-size: 20px;
+    background-color: white;
+}
+
+.content > div:nth-child(2) > div{
+
+}
+
+.content > div:nth-child(3){
+    width: 100%;
+    height: calc(100% - 120px);
+    margin-top: 10px;
+    background-color: white;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+/*--------------------------------------------------------------*/
+.order-list{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.order-element{
+    display: grid;
+    grid-template-columns: 14% 24% 24% 24% 14% ;
+    width: 100%;
+    height: 60px;
+    font-size: 18px;
+    text-align: center;
+    border-bottom: 1px solid lightgray;
+}
+
+.order-element > div{
+    line-height: 60px;
+}
+
+.order-element > button{
+    height: 40px;
+    margin-top: 10px;
+}
+
+/*----------------------------------------------------------------*/
+
+.order-detail-box{
+    width: calc(100vw - 250px);
+    height: 100vh;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: #F5F3F3;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.order-detail-box > div:nth-child(2){
+    display: grid;
+    grid-template-columns: 200px auto 210px 210px;
+    font-size: 20px;
+    height: 60px;
+    margin-top: 10px;
+    background-color: white;
+    align-items: center;
+    padding-left: 30px;
+    padding-right: 20px;
+}
+
+.detail-box-title{
+    width: 100%;
+    height: 70px;
+    line-height: 70px;
+    padding-left: 30px;
+    font-size: 25px;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 200px auto 150px;
+    gap: 10px;
+}
+
+.detail-box-title > button{
+    display: block;
+    margin-top: 10px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.order-detail{
+    display: grid;
+    width: 100%;
+    min-height: calc(100vh - 160px);
+    grid-template-columns: 60% 40%;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.order-detail > div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.order-detail > div > div{
+    background-color: white;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+}
+
+.order-detail > div:first-child > div:first-child > div:nth-child(2){
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+}
+.order-detail > div:first-child > div:first-child > div:nth-child(2) > div{
+    width: 40%;
+    height: 70px;
+}
+
+
+.order-detail-element{
+
+}
+
+.order-detail-element > div{
+    margin-top: 10px;
+    min-height: 50px;
+
+}
+
+.order-detail-element > div:first-child{
+    font-size: 20px;
+    margin-left: 20px;
+    width: calc(100% - 20px);
+    border-bottom: 1px solid lightgray;
+}
+.order-detail-element > div:not(:first-child){
+    display: grid;
+    grid-template-columns: minmax(20%, 200px) auto;
+}
+
+.order-detail-element> div:not(:first-child) > div{
+    margin-left: 20px;
+}
+
+/*---------------------------------*/
+
+.order-item-element{
+    display: grid;
+    width: calc(100% - 20px);
+    height: auto;
+    grid-template-columns: 200px auto;
+    grid-template-rows: 40px 80px 40px;
+    grid-template-areas: "mot hai"
+                         "mot ba"
+                         "mot bon";
+    border-bottom: 1px solid lightgray;
+}
+
+.order-item-element > div:first-child{
+    grid-area: mot;
+    width: 100%;
+    height: 100%;
+}
+
+.order-item-element > div:first-child > img{
+    display: block;
+    height: 140px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.order-item-element > div:nth-child(2){
+    grid-area: hai;
+    font-size: 20px;
+}
+
+.order-item-element > div:nth-child(3){
+    grid-area: ba;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 40px 40px;
+}
+
+.order-item-element > div:nth-child(3) > div{
+    line-height: 40px;
+}
+
+.order-item-element > div:nth-child(4){
+    grid-area: bon;
+    line-height: 40px;
+    color: pink;
+}
+
+
+.order-detail > div:first-child > .order-detail-element:nth-child(2) > div:not(:first-child, :last-child){
+    display: block;
+}
+
+.order-detail > div:first-child > div:nth-child(2) > div:nth-child(3){
+    width: 60%;
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: 50% 50%;
+    height: 50px;
+    font-size: 20px;
+    line-height: 50px;
+}
+
+.delivery-date {
+    display: flex;
+    gap: 10px;
+}
+
+.delivery-date > div:nth-child(2){
+    width: 5px;
+    cursor: pointer;
+    transform: rotate(45deg);
+}
+
+.pencil-icon{
+    fill: lightgray;
+}
+
+.delivery-date > div:nth-child(2):hover .pencil-icon{
+    fill: gray;
+}
+
+.edit-delivery{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(5px);
+}
+
+.edit-delivery > div{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    width: 500px;
+    height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25vh;
+    font-size: 18px;
+    align-items: center;
+    background-color: white;
+    box-shadow: 2px 2px 5px gray;
+}
+
+.edit-delivery > div > div:first-child{
+    font-size: 20px;
+    width: 100%;
+}
+
+.edit-delivery > div > div:nth-child(2){
+    font-size: 18px;
+    width: 100%;
+}
+.edit-delivery > div > div:last-child{
+    width: 80%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+}
+
+
+
+.hiding-box{
+    display: none;
+}

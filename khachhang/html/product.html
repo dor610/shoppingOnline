@@ -8,7 +8,6 @@
   <title>Sản Phẩm - Website Bán Hàng</title>
   <link href="../css/header.css" rel="stylesheet" type="text/css">
   <link href="../css/product.css" rel="stylesheet" type="text/css">
-  <link href="../css/notification.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <header class="header">
@@ -124,48 +123,43 @@
 
   <div id="item-tab" class="item-tab hidden">
     <div class="item-tab-header">
-      <div id="back-Btn" class="back-btn" title="Quay Lại">
-        <svg xmlns="http://www.w3.org/2000/svg" id="Layer_5" data-name="Layer 5" viewBox="0 0 474 295.38">
-          <line class="back-icon" x1="14.5" y1="147.5" x2="459.5" y2="147.5"/>
-          <line class="back-icon" x1="14.5" y1="147.5" x2="194.5" y2="14.5"/>
-          <line class="back-icon" x1="194.85" y1="280.88" x2="14.85" y2="147.88"/>
-        </svg>
-      </div>
+      <div>Thông Tin Sản Phẩm</div>
+      <button id="back-Btn" class="blue-btn">Trở về</button>
     </div>
 
     <div class="item-tab-container ">
-      <div>
-        <div id="item-img" class="item-img"></div>
-        <div id="item-information" class="item-information">
-          <div id="item-name">Huhuhuuh</div>
-          <div id="item-price">Giá: 855555555</div>
-          <div id="in-stock">Số lượng trong kho:  58558</div>
+      <div id="item-img" class="item-img"></div>
+      <div id="item-information" class="item-information">
+        <div id="item-name">Huhuhuuh</div>
+        <div id="item-price">Giá: 855555555</div>
+        <div id="in-stock">Số lượng trong kho:  58558</div>
+        <div>
+          <div>Kích Cỡ: </div>
           <div>
-            <span>Kích Cỡ: </span>
-            <span>
-              <span id="item-size" class="item-size">
-                <form>
-                  <input id="s-size" type="radio" value="s" name="size"><label for="s-size">S</label>
-                  <input id="m-size" type="radio" value="m" name="size"><label for="m-size">M</label>
-                  <input id="l-size" type="radio" value="l" name="size"><label for="l-size">L</label>
-                  <input id="xl-size" type="radio" value="xl" name="size"><label for="xl-size">XL</label>
-                  <input id="xxl-size" type="radio" value="xxl" name="size"><label for="xxl-size">XXL</label>
-                  <input id="xxxl-size" type="radio" value="xxxl" name="size"><label for="xxxl-size">XXXL</label>
-                </form>
-              </span>
-            </span>
+              <button id="s-size" class="size-button">S</button>
+              <button id="m-size" class="size-button">M</button>
+              <button id="l-size" class="size-button">L</button>
+              <button id="xl-size" class="size-button">XL</button>
+              <button id="xxl-size" class="size-button">XXL</button>
+              <button id="xxxl-size" class="size-button">XXXL</button>
           </div>
-          <div>
-            <span>Số lượng: </span>
-            <button id="quantity-desc-btn" disabled><</button>
-            <span id="quantity">0</span>
-            <button id="quantity-insc-btn" disabled>></button>
-          </div>
-          <button id="buy-btn" disabled>Mua Ngay</button>
-          <button id="add-to-cart-btn" disabled>Thêm Vào Giỏ Hàng</button>
+        </div>
+        <div>
+          <div>Số lượng: </div>
+          <button id="quantity-desc-btn" disabled><</button>
+          <div id="quantity">0</div>
+          <button id="quantity-insc-btn" disabled>></button>
+        </div>
+        <div>
+          <button id="buy-btn" class="pink-btn long-btn disable-btn" disabled>Mua Ngay</button>
+          <button id="add-to-cart-btn" class="blue-btn long-btn disable-btn" disabled>Thêm Vào Giỏ Hàng</button>
         </div>
       </div>
-      <div id="item-description" class="item-description"></div>
+
+      <div class="item-description">
+        <div>Mô tả sản phẩm:</div>
+        <div id="item-description"></div>
+      </div>
     </div>
   </div>
 </div>
@@ -173,7 +167,6 @@
 <script src="../js/product.js"></script>
 <script src="../js/header.js"></script>
 <script src="../js/webStorage.js"></script>
-<script src="../js/notification.js"></script>
 <footer></footer>
 </body>
 </html>

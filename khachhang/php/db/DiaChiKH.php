@@ -13,9 +13,9 @@ class DiaChiKH{
         $this->mskh = $mskh;
     }
 
-    public static function them($madc, $diaChi, $mskh){
+    public static function them($diaChi, $mskh){
         $conn = getConnection();
-
+        $madc = DiaChiKH::taoMaDC();
         $sql = "insert into diachikh values ('".$madc."','".$diaChi."','".$mskh."')";
 
         $result = $conn->query($sql);
@@ -33,6 +33,27 @@ class DiaChiKH{
 
         $conn->close();
         return $result;
+    }
+
+    public static function timDiaChi($madc){
+        $conn = getConnection();
+
+        $sql = "select * from diachikh where madc = '".$madc."'";
+
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0){
+            $row = $result->fetch_assoc();
+            $diaChi = new DiaChiKH($row["madc"], $row["DiaChi"], $row["mskh"]);
+
+            $result->close();;
+            $conn->close();
+            return $diaChi;
+        }
+
+        $result->close();
+        $conn->close();
+        return "";
     }
 
     public static function tim($mskh){
@@ -86,16 +107,17 @@ class DiaChiKH{
         $result = $conn->query($sql);
 
         if($result->num_rows > 0){
-            $maxmadc = ($result->fetch_assoc())['madc'];
-            $maxmadc = (intval($maxmadc) +1)."";
-            if(strlen($maxmadc) === 1) $maxmadc = "0000".$maxmadc;
-            else if(strlen($maxmadc) === 2) $maxmadc = "000".$maxmadc;
-            else if(strlen($maxmadc) === 3) $maxmadc = "00".$maxmadc;
-            else if(strlen($maxmadc) === 4) $maxmadc = "0".$maxmadc;
-
-            return $maxmadc;
+            $madc = ($result->fetch_assoc())['madc'];
+            $madc = (intval($madc) +1)."";
+            $length = 10 - strlen($madc);
+            if($length > 0){
+                for($count = 0; $count < $length; $count ++){
+                    $madc = "0".$madc;
+                }
+            }
+            return $madc;
         }
 
-        return "00000";
+        return "0000000001";
     }
 }

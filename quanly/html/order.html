@@ -6,9 +6,9 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Quản Lý Đơn Hàng - Website Bán Hàng</title>
-  <link rel="stylesheet" href="../css/dashboard.css" type="text/css">
   <link rel="stylesheet" href="../css/template.css" type="text/css">
   <link rel="stylesheet" href="../css/navBar.css" type="text/css">
+  <link rel="stylesheet" href="../css/order.css" type="text/css">
 </head>
 <body>
 <div class="main-container">
@@ -48,11 +48,199 @@
     </div>
   </div>
   <div class="content-container">
+    <div class="header">
+      <div id="tab-title">Quản Lý Đơn Hàng</div>
+      <div>
+        <div id="staff-adding-btn" class="pink-btn">Thêm</div>
+        <input id="search-content" type="text" placeholder="Nhập mã hoá đơn">
+        <div id="search-btn" class="blue-btn">Tìm</div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="tab-btn-container">
+      </div>
+      <div>
+        <div>Mã đơn hàng</div>
+        <div>Tên khách hàng</div>
+        <div>Nhân viên xác nhận</div>
+        <div>Trạng thái đơn hàng</div>
+        <div>Chi tiết</div>
+      </div>
+      <div id="order-list">
+        <div class="order-element">
+          <div>000000001</div>
+          <div>Nguyễn Văn A</div>
+          <div>Nguyễn Văn C</div>
+          <button class="blue-btn">Chi tiết</button>
+        </div>
+      </div>
+      </div>
 
+    <div id="order-detail-box" class="order-detail-box hiding-box">
+        <div class="detail-box-title">
+          <div>Chi Tiết Đơn Hàng:</div>
+          <div id="detail-box-title">0000000001</div>
+          <button id="back-btn" class="blue-btn">Trở về</button>
+        </div>
+      <div>
+        <div>Trạng thái đơn hàng: </div>
+        <div id="detail-box-current-status">vvChưa xác nhận</div>
+        <button id="order-next-status-btn" class="blue-btn long-btn">Trạng thái tiếp theo</button>
+        <button id="cancel-order-btn" class="pink-btn long-btn">Huỷ đơn hàng</button>
+      </div>
+        <div class="order-detail">
+          <div>
+            <div class="order-detail-element">
+              <div>Đơn hàng</div>
+              <div>
+                <div>
+                  <div>Mã đơn hàng: </div>
+                  <div id="order-detail-order-id">0000000001</div>
+                </div>
+                <div>
+                  <div>Hình thức thanh toán:</div>
+                  <div id="order-detail-payment-method">COD</div>
+                </div>
+                <div>
+                  <div>Ngày đặt hàng: </div>
+                  <div id="order-detail-order-date">10/10/2021</div>
+                </div>
+                <div>
+                  <div>Ngày giao hàng (dự kiến): </div>
+                  <div class="delivery-date">
+                    <div id="order-detail-delivery-date">15/10/2021</div>
+                    <div id="edit-delivery-date-btn" title="Chỉnh sửa">
+                      <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 34.5 117.5">
+                        <rect class="pencil-icon" x="0.5" y="13" width="15" height="78"></rect>
+                        <rect class="pencil-icon" x="18.5" y="13" width="15" height="78"></rect>
+                        <polygon class="pencil-icon" points="33 94.5 17 117.5 0 94.5 33 94.5"></polygon>
+                        <rect class="pencil-icon" x="0.5" width="34" height="10"></rect>
+                      </svg>
+                    </div>
+                    <div id="edit-delivery-date-box" class="edit-delivery hiding-box">
+                        <div>
+                          <div>Cập nhật ngày giao hàng: </div>
+                          <div>Đơn hàng: <span id="edit-delivery-date-title">0000000001</span></div>
+                          <input id="edit-delivery-date-input" type="date" placeholder="Nhập ngày giao hàng">
+                          <div>
+                            <button id="edit-delivery-date-submit-btn" class="blue-btn">Cập nhật</button>
+                            <button id="edit-delivery-date-cancel-btn" class="pink-btn">Huỷ</button>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="order-detail-element">
+              <div>Chi tiết đơn hàng</div>
+              <div id="order-item-box">
+                <!--<div class="order-item-element">
+                  <div>
+                      hình
+                  </div>
+                  <div>Quần Nam Đơn Sắc</div>
+                  <div>
+                    <div>Kích cỡ:  m</div>
+                    <div>Số lượng:  2</div>
+                    <div>Đơn giá:  500000</div>
+                    <div>Thành tiền:  1000000</div>
+                  </div>
+                  <div>
+                    Ghi chú có thể có
+                  </div>
+                </div>
+                <div class="order-item-element">
+                  <div>
+                    hình
+                  </div>
+                  <div>Quần Nam Đơn Sắc</div>
+                  <div>
+                    <div>Kích cỡ:  m</div>
+                    <div>Số lượng:  2</div>
+                    <div>Đơn giá:  500000</div>
+                    <div>Thành tiền:  1000000</div>
+                  </div>
+                  <div>
+                    Ghi chú có thể có
+                  </div>
+                </div>
+                <div class="order-item-element">
+                  <div>
+                    hình
+                  </div>
+                  <div>Quần Nam Đơn Sắc</div>
+                  <div>
+                    <div>Kích cỡ:  m</div>
+                    <div>Số lượng:  2</div>
+                    <div>Đơn giá:  500000</div>
+                    <div>Thành tiền:  1000000</div>
+                  </div>
+                  <div>
+                    Ghi chú có thể có
+                  </div>
+                </div>
+                <div class="order-item-element">
+                  <div>
+                    hình
+                  </div>
+                  <div>Quần Nam Đơn Sắc</div>
+                  <div>
+                    <div>Kích cỡ:  m</div>
+                    <div>Số lượng:  2</div>
+                    <div>Đơn giá:  500000</div>
+                    <div>Thành tiền:  1000000</div>
+                  </div>
+                  <div>
+                    Ghi chú có thể có
+                  </div>
+                </div>-->
+              </div>
+              <div>
+                <div>Tổng tiền: </div>
+                <div id="total-cost">1000000</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="order-detail-element">
+              <div>Khách hàng</div>
+              <div>
+                <div>Mã khách hàng: </div>
+                <div id="order-detail-customer-id">jdhkfjhdslhdf</div>
+              </div>
+              <div>
+                <div>Tên khách hàng: </div>
+                <div id="order-detail-customer-name">Nguyễn Hoàng Khang</div>
+              </div>
+              <div>
+                <div>Số điện thoại: </div>
+                <div id="order-detail-customer-tel">0123456789</div>
+              </div>
+              <div>
+                <div>Địa chỉ nhận hàng: </div>
+                <div id="order-detail-customer-address">kjdhf djkhfkjsd jhdkjfhd jhdkfjsd</div>
+              </div>
+            </div>
+            <div class="order-detail-element">
+              <div>Nhân viên xác nhận</div>
+              <div>
+                <div>Mã nhân viên: </div>
+                <div id="order-detail-staff-id">jdhkfjhdslhdf</div>
+              </div>
+              <div>
+                <div>Tên nhân viên: </div>
+                <div id="order-detail-staff-name">Nguyễn Hoàng Khang</div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
   </div>
 </div>
 
 <script src="../js/webStorage.js"></script>
 <script src="../js/navBar.js"></script>
+<script src="../js/order.js"></script>
 </body>
 </html>

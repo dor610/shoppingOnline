@@ -82,9 +82,6 @@ class HangHoa{
                 $arr[$count] =json_encode( $hanghoa, JSON_UNESCAPED_UNICODE);
                 $count++;
             }
-            $arr[$count] = "true";
-        }else{
-            $arr[$count] = "false";
         }
 
         $result->close();

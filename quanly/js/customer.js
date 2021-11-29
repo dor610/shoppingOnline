@@ -84,17 +84,17 @@ function loadData(){
 }
 
 function getCustomers(){
-    console.log("đang lấy");
+    //console.log("đang lấy");
     let content = "";
     if(searchBox.keyWord === '')
         content = "offset="+offset+"&soLuong="+15+"&type=getCustomers";
     else content = "offset="+offset+"&soLuong="+15+"&keyWord="+searchBox.keyWord+"&type=search";
     sendPostRequest("../php/customer.php", content, res =>{
-        console.log(res);
+        //console.log(res);
         let data = JSON.parse(res);
         data.forEach(item =>{
             let customer = JSON.parse(item);
-            console.log(customer);
+            //console.log(customer);
             let child = createCustomerElement(customer);
             customerList.appendChild(child);
             customerList.addEventListener("scroll", loadData);
@@ -123,9 +123,13 @@ function createCustomerElement(data){
     nameDiv.innerHTML = data.hoTenKh;
     if (data.xoa === 'true'){
         statusDiv.innerHTML = "Ngưng hoạt động";
+        statusDiv.style.color = "pink";
         deleteBtn.disabled = true;
         deleteBtn.classList.add("disable-btn");
-    }else statusDiv.innerHTML = "Đang hoạt động";
+    }else {
+        statusDiv.innerHTML = "Đang hoạt động";
+        statusDiv.style.color = "deepskyblue";
+    }
 
     infoBtn.id = "info_"+data.mskh;
     infoBtn.innerHTML = "Thông tin";
@@ -144,6 +148,7 @@ function createCustomerElement(data){
         openCustomerInfoBox();
     }
     orderBtn.onclick = function (){
+        //console.log("clicking")
         let id = this.id.substring(6);
         currentCustomer.mskh = id;
         customerList.removeEventListener("scroll", loadData);
@@ -203,9 +208,7 @@ function getCustomerInfo(){
        currentCustomer.name = cusInfo.hoTenKh;
        currentCustomer.phoneNumber = cusInfo.soDienThoai;
        currentCustomer.email = cusInfo.email;
-       if(cusInfo.xoa === 'true'){
-           currentCustomer.status = "Ngưng hoạt động";
-       }else currentCustomer.status = "Đang hoạt động";
+       currentCustomer.status = cusInfo.xoa;
        getCustomerAddresses();
        setCustomerInfo();
     });
@@ -215,8 +218,17 @@ function setCustomerInfo(){
     customerInfoBox.name.innerHTML = currentCustomer.name;
     customerInfoBox.mskh.innerHTML = currentCustomer.mskh;
     customerInfoBox.phoneNumber.innerHTML = currentCustomer.phoneNumber;
-    customerInfoBox.email.innerHTML = currentCustomer.email;
-    customerInfoBox.status.innerHTML = currentCustomer.status;
+
+    if(customerInfoBox.email)
+        customerInfoBox.email.innerHTML = currentCustomer.email;
+    else customerInfoBox.email.innerHTML = "Chưa thiết lập";
+    if(currentCustomer.status === 'true'){
+        customerInfoBox.status.innerHTML = "Ngưng hoạt động";
+        customerInfoBox.status.style.color = "pink";
+    }else{
+        customerInfoBox.status.innerHTML = "Đang hoạt động";
+        customerInfoBox.status.style.color = "deepskyblue";
+    }
 }
 
 function getCustomerAddresses(){
@@ -264,12 +276,13 @@ function resetOrderBox(){
 
 function getOrders(){
     let data = "mskh="+currentCustomer.mskh+"&type=customerOrder";
+    console.log(data)
     sendPostRequest("../php/customer.php", data, res =>{
         //console.log(res);
         let orders =JSON.parse(res);
         orders.forEach(o => {
             let order = JSON.parse(o);
-            console.log(order);
+            //console.log(order);
             currentCustomer.orders.push(order);
         });
         setOrders();
@@ -303,12 +316,13 @@ function createOrderElement(data){
     div2Title1.innerHTML = "Nhân viên xác nhận";
     let staffName = document.createElement("div");
     if(data.msnv){
-        let data = "msnv="+data.msnv+"&type=getStaff";
-        sendPostRequest("../php/staff.php", data, res =>{
+        let str = "msnv="+data.msnv+"&type=getStaff";
+        sendPostRequest("../php/staff.php", str, res =>{
            staffName.innerHTML = JSON.parse(res).HoTenNV;
         });
     }else {
         staffName.innerHTML = "Chưa thiết lập";
+        staffName.style.color = "pink";
     }
 
 
@@ -349,7 +363,8 @@ function createOrderElement(data){
     if(data.ngayGH){
         deliveryDate.innerHTML = data.ngayGH;
     }else {
-        deliveryDate.innerHTML = "Chưa thiết lập"
+        deliveryDate.innerHTML = "Chưa thiết lập";
+        deliveryDate.style.color = "pink";
     }
     div33.appendChild(div33Title);
     div33.appendChild(deliveryDate);

@@ -1,8 +1,8 @@
 <?php
 
-require_once "KhachHang.php";
-require_once "DiaChiKH.php";
-require_once "DatHang.php";
+require_once "db/KhachHang.php";
+require_once "db/DiaChiKH.php";
+require_once "db/DatHang.php";
 
 $type = $_POST['type'];
 
@@ -16,6 +16,13 @@ if($type === "getInfo"){
 if($type === "getAddresses"){
     $mskh = $_POST['mskh'];
     $result = \quanly\php\db\DiaChiKH::timTatCa($mskh);
+
+    echo json_encode($result, 256);
+}
+
+if($type === 'getAddress'){
+    $madc = $_POST['madc'];
+    $result = \quanly\php\db\DiaChiKH::tim($madc);
 
     echo json_encode($result, 256);
 }
@@ -41,7 +48,7 @@ if($type === "search"){
 if($type === "customerOrder"){
     $mskh = $_POST['mskh'];
 
-    $result = \quanly\php\db\DatHang::timTatCa($mskh, "customerOrder");
+    $result = \quanly\php\db\DatHang::timTatCa($mskh, 0,"customerOrder");
 
     echo json_encode($result, 256);
 }

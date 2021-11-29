@@ -1,5 +1,5 @@
 <?php
-require_once "HinhHangHoa.php";
+require_once "db/HinhHangHoa.php";
 
 if(isset($_FILES["file"])){
 

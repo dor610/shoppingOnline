@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Quản Lý Nhân Viên - Website Bán Hàng</title>
-    <link rel="stylesheet" href="../css/dashboard.css" type="text/css">
+    <link rel="stylesheet" href="../css/staff.css" type="text/css">
     <link rel="stylesheet" href="../css/template.css" type="text/css">
     <link rel="stylesheet" href="../css/navBar.css" type="text/css">
 </head>
@@ -24,7 +24,7 @@
             <div class="nav-bar-option"><a href="order.html">Đơn Hàng</a></div>
             <div class="nav-bar-option"><a href="product.html">Sản Phẩm</a></div>
             <div class="nav-bar-option"><a href="customer.html">Khách Hàng</a></div>
-            <div class="nav-bar-option">Quản Lý Nhân Viên</div>
+            <div class="nav-bar-option">Nhân Viên</div>
         </nav>
         <div class="logo">
             <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 631.18 205.2">
@@ -48,11 +48,131 @@
         </div>
     </div>
     <div class="content-container">
+        <div class="header">
+            <div id="tab-title">Quản Lý Nhân Viên</div>
+            <div>
+                <div id="staff-adding-btn" class="pink-btn">Thêm</div>
+                <input id="search-content" type="text" placeholder="Nhập tên nhân viên">
+                <div id="search-btn" class="blue-btn">Tìm</div>
+            </div>
+        </div>
+        <div id="staff-list" class="staff-list">
+            <!--<div class="staff-element">
+                <div>
+                    <div>Mã nhân viên</div>
+                    <div>jdhskfjhdskjf</div>
+                </div>
+                <div>
+                    <div>Tên nhân viên</div>
+                    <div>Nguyễn Văn a</div>
+                </div>
+                <div>
+                    <div>Chức vụ</div>
+                    <div>Nhân Viên</div>
+                </div>
+                <div>
+                    <div>Số điện thoại</div>
+                    <div>0123456789</div>
+                </div>
+                <div>
+                    <div>Trạng thái</div>
+                    <div>Đang hoạt động</div>
+                </div>
+                <div>
+                    <div>Địa chỉ</div>
+                    <div>Số 1 đường 2 phường 3 quận 4 thành phố 5</div>
+                </div>
+                <div>
+                    <button class="blue-btn">Chỉnh sửa</button>
+                    <button class="pink-btn">Xoá</button>
+                </div>
+            </div>-->
 
+        </div>
+
+        <div id="adding-staff-box" class="adding-staff-box hiding-box">
+            <div>
+                <div class="box-title">
+                    <div>Thêm Nhân Viên</div>
+                </div>
+                <div>
+                    <div>
+                        <div>Mã nhân viên</div>
+                        <input id="adding-staff-msnv" type="text" placeholder="Nhập mã nhân viên">
+                    </div>
+                    <div>
+                        <div>Tên nhân viên</div>
+                        <input id="adding-staff-name" type="text" placeholder="Nhập họ tên nhân viên">
+                    </div>
+                    <div>
+                        <div>Chức vụ</div>
+                        <input id="adding-staff-position" type="text" placeholder="Nhập chức vụ">
+                    </div>
+                    <div>
+                        <div>Số điện thoại</div>
+                        <input id="adding-staff-phone-number" type="text" placeholder="Nhập số điện thoại">
+                    </div>
+                    <div>
+                        <div>Địa chỉ</div>
+                        <input id="adding-staff-address" type="text" placeholder="Nhập địa chỉ">
+                    </div>
+                    <div>
+                        <button id="adding-staff-submit-btn" class="blue-btn">Thêm</button>
+                        <button id="adding-staff-cancel-btn" class="pink-btn">Huỷ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="editing-staff-box" class="editing-staff-box hiding-box">
+            <div>
+                <div class="box-title">
+                    <div>Chỉnh Sửa Thông Tin Nhân Viên</div>
+                </div>
+                <div>
+                    <div>
+                        <div>Mã nhân viên</div>
+                        <input id="editing-staff-msnv" type="text" disabled>
+                    </div>
+                    <div>
+                        <div>Tên nhân viên</div>
+                        <input id="editing-staff-name" type="text">
+                    </div>
+                    <div>
+                        <div>Chức vụ</div>
+                        <input id="editing-staff-position" type="text">
+                    </div>
+                    <div>
+                        <div>Số điện thoại</div>
+                        <input id="editing-staff-phone-number" type="text">
+                    </div>
+                    <div>
+                        <div>Địa chỉ</div>
+                        <input id="editing-staff-address" type="text">
+                    </div>
+                    <div>
+                        <button id="editing-staff-submit-btn" class="blue-btn">Chỉnh sửa</button>
+                        <button id="editing-staff-cancel-btn" class="pink-btn">Huỷ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="deleting-staff-box" class="deleting-staff-box hiding-box">
+            <div>
+                <div>Xoá nhân viên</div>
+                <div>Thông tin liên quan đến nhân viên vẫn được giữ lại</div>
+                <div>
+                    <button id="deleting-staff-confirm-btn" class="pink-btn">Xoá</button>
+                    <button id="deleting-staff-cancel-btn" class="blue-btn">Trở lại</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
 <script src="../js/webStorage.js"></script>
 <script src="../js/navBar.js"></script>
+<script src="../js/staff.js"></script>
 </body>
 </html>

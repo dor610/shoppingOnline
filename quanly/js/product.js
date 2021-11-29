@@ -217,7 +217,7 @@ function createItemElement(data){
     parent.appendChild(price);
     parent.appendChild(quantity);
     parent.appendChild(editDiv);
-    parent.appendChild(deleteButton);
+    parent.appendChild(deleteDiv);
 
     return parent;
 }
@@ -555,7 +555,11 @@ function getItemImages(){
 
 function setItemImages(){
     editingBox.itemImg.imgBox.innerHTML = '';
-    for(let img in currentItem.img){
+    let t = false;
+    let imgArr = Object.keys(currentItem.img);
+    if(imgArr.length === 1) t = true;
+    console.log("keets quar: "+t);
+    imgArr.forEach(img =>{
         let div = document.createElement("div");
         let imgE = document.createElement("img");
         let button = document.createElement("button");
@@ -564,11 +568,16 @@ function setItemImages(){
         div.id = currentItem.img[img].maHinh + "p";
         button.innerHTML = "Xoá";
         button.onclick = deleteItemImage;
+        button.classList.add("pink-btn");
+        if(t){
+            button.classList.add('disable-btn');
+            button.disabled = true;
+        }
 
         div.appendChild(imgE);
         div.appendChild(button);
         editingBox.itemImg.imgBox.appendChild(div);
-    }
+    })
 }
 
 function deleteItemImage(){
@@ -677,7 +686,7 @@ function getEditingItemQuantityBySize(){
     for(let s in currentItem.newSizes){
         let quantity = document.getElementById(currentItem.newSizes[s].tenKichCo+"quantity").value;
         if (quantity === ''){
-            i = falsel
+            i = false;
         }else {
             currentItem.newSizeQuantity[s] = quantity;
         }

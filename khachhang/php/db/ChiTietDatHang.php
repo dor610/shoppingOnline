@@ -55,4 +55,23 @@ class ChiTietDatHang{
         $conn->close();
         return $result;
     }
+
+    public static function timChiTiet($madh){
+        $conn = getConnection();
+        $sql = "SELECT SoLuong, GiaDatHang, Tenhh, kichco.TenKichCo, hanghoa.mshh from chitietdathang JOIN hanghoa on hanghoa.mshh = chitietdathang.mshh
+													  JOIN kichco on chitietdathang.mskc = kichco.mskc where SoDonHH = '$madh'";
+
+        $result = $conn->query($sql);
+        $arr = [];
+        $count = 0;
+        if($result->num_rows > 0){
+            while ($row = $result->fetch_assoc()){
+                $arr[$count] = json_encode($row, 256);
+                $count++;
+            }
+        }
+        $result->close();
+        $conn->close();
+        return $arr;
+    }
 }

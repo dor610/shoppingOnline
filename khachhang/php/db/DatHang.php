@@ -1,5 +1,8 @@
 <?php
 namespace khachhang\php\db;
+use DateTime;
+use quanly\php\db\ChiTietDatHang;
+
 require_once "connection.php";
 require_once "ChiTietDatHang.php";
 class DatHang{
@@ -42,11 +45,12 @@ class DatHang{
         return $soDonHH;
     }
 
-    public static function xoa($soDonHh){
+
+    public static function huyDonHang($madh){
         $conn = getConnection();
-        $sql = "delete from dathang where SoDonHH = '".$soDonHh."'";
-        ChiTietDatHang::xoaTatCa($soDonHh);
+        $sql = "update dathang set trangthai = '00005' where SoDonHH = '$madh'";
         $result = $conn->query($sql);
+
         $conn->close();
         return $result;
     }
@@ -71,5 +75,36 @@ class DatHang{
 
         return "0000000001";
     }
-}
 
+    public static function tim($madh){
+        $conn = getConnection();
+        $sql = "select * from dathang where SoDonHH = '$madh'";
+        $result = $conn->query($sql);
+        $donHang = '';
+        if($result->num_rows > 0){
+            $row= $result->fetch_assoc();
+            $donHang = new DatHang($row['SoDonHH'], $row['mskh'], $row['msnv'], $row['madc'], $row['thanhtoan'], $row['ngayDH'], $row['ngayGH'], $row['trangthai']);
+        }
+        $result->close();
+        $conn->close();
+        return $donHang;
+    }
+
+    public static function timTatCa($mskh, $offset){
+        $conn = getConnection();
+        $sql = "select * from dathang where mskh = '$mskh' order by ngayDH DESC limit $offset, 15";
+        $result = $conn->query($sql);
+        $arr = [];
+        $count = 0;
+        if($result->num_rows> 0){
+            while($row = $result->fetch_assoc()){
+                $donHang = new DatHang($row['SoDonHH'], $row['mskh'], $row['msnv'], $row['madc'], $row['thanhtoan'], $row['ngayDH'], $row['ngayGH'], $row['trangthai']);
+                $arr[$count] = json_encode($donHang, 256);
+                $count++;
+            }
+        }
+        $result->close();
+        $conn->close();
+        return $arr;
+    }
+}

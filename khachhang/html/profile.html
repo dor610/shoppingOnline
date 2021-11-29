@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Đăng Nhập - Website Bán Hàng</title>
+    <title>Thông Tin Tài Khoản - Website Bán Hàng</title>
     <link href="../css/profile.css" rel="stylesheet" type="text/css">
     <link href="../css/header.css" rel="stylesheet" type="text/css">
 </head>
@@ -73,45 +73,161 @@
 </header>
 
 <div class="profile-container">
-    <div class="profile-nav-bar">
-        <div>Quản Lý Tài Khoản</div>
+    <div>
+        <div>Quản lý tài khoản</div>
         <nav>
-            <div id="profile-account-btn" class="profile-active-btn">Thông Tin Tài Khoản</div>
-            <div id="profile-edit-btn">Chỉnh Sửa Thông Tin</div>
-            <div id="profile-order-btn">Đơn hàng</div>
+            <div id="profile-btn" class="nav-btn">Thông tin tài khoản</div>
+            <div id="order-btn" class="nav-btn">Đơn hàng</div>
         </nav>
     </div>
-
-    <div class="main-content">
-        <div id="profile-account" class="profile-account">
-            <div>Thông Tin Cơ Bản</div>
+    <div>
+        <div id="profile-tab" class="profile-tab">
+            <div>Thông tin tài khoản</div>
             <div>
-                <div>Tên Tài Khoản</div>
-                <div id="userName"></div>
-                <div>Họ Tên</div>
-                <div id="name">Nguyễn Hoàng Khang</div>
-                <div>Địa Chỉ</div>
-                <div id="address">Khu II, Đại học Cần Thơ</div>
-                <div>Số Điện Thoại</div>
-                <div id="phone-number">0123456789</div>
-                <div>Email</div>
-                <div id="email">khangb1805770@student.ctu.edu.vn</div>
+                <div>Tên đăng nhập: </div>
+                <div id="user-name">Khang</div>
+            </div>
+            <div>
+                <div>Họ tên</div>
+                <div>
+                    <div id="name">Khang</div>
+                    <div id="edit-name"><svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 34.5 117.5">
+                        <rect class="pencil-icon" x="0.5" y="13" width="15" height="78"></rect>
+                        <rect class="pencil-icon" x="18.5" y="13" width="15" height="78"></rect>
+                        <polygon class="pencil-icon" points="33 94.5 17 117.5 0 94.5 33 94.5"></polygon>
+                        <rect class="pencil-icon" x="0.5" width="34" height="10"></rect>
+                    </svg></div>
+                </div>
+            </div>
+            <div>
+                <div>Số điện thoại: </div>
+                <div>
+                    <div id="tel">Khang</div>
+                    <div id="edit-tel"><svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 34.5 117.5">
+                        <rect class="pencil-icon" x="0.5" y="13" width="15" height="78"></rect>
+                        <rect class="pencil-icon" x="18.5" y="13" width="15" height="78"></rect>
+                        <polygon class="pencil-icon" points="33 94.5 17 117.5 0 94.5 33 94.5"></polygon>
+                        <rect class="pencil-icon" x="0.5" width="34" height="10"></rect>
+                    </svg></div>
+                </div>
+            </div>
+            <div>
+                <div>Email: </div>
+                <div>
+                    <div id="email">Khang</div>
+                    <div id="edit-email"><svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 34.5 117.5">
+                        <rect class="pencil-icon" x="0.5" y="13" width="15" height="78"></rect>
+                        <rect class="pencil-icon" x="18.5" y="13" width="15" height="78"></rect>
+                        <polygon class="pencil-icon" points="33 94.5 17 117.5 0 94.5 33 94.5"></polygon>
+                        <rect class="pencil-icon" x="0.5" width="34" height="10"></rect>
+                    </svg></div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <div>Địa chỉ: </div>
+                    <button id="add-address-btn" class="blue-btn">Thêm</button>
+                </div>
+                <div id="address-box">
+                    <div>
+                        <div>asdasd asdasd đâsdas</div>
+                        <button class="pink-btn">Xoá</button>
+                    </div>
+                    <div>
+                        <div>asdasd asdasd đâsdas</div>
+                        <button class="pink-btn">Xoá</button>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div id="profile-edit" class="profile-edit hidden">
-            <div>Chỉnh Sửa Thông Tin</div>
-            <form action="#">
-                <input id="edit-name" type="text" placeholder="Họ Tên">
-                <input id="edit-address" type="text" placeholder="Địa Chỉ">
-                <input id="edit-pn" type="tel" placeholder="Số Điện Thoại">
-                <input id="edit-email" type="email" placeholder="Email">
-                <button id="edit-submit-btn">Chỉnh Sửa</button>
-            </form>
+        <div id="order-tab" class="order-tab">
+            <div>Đơn hàng</div>
+            <div>
+                <div>Mã đơn hàng</div>
+                <div>Trạng thái</div>
+                <div>Ngày đặt hàng</div>
+                <div>Ngày giao hàng</div>
+                <div>Chi tiết</div>
+            </div>
+            <div id="order-box" class="order-box">
+                <!--<div>
+                    <div>000000000001</div>
+                    <div>Trạng thái</div>
+                    <div>20/11/2021</div>
+                    <div>25/11/2021</div>
+                    <button class="blue-btn">Chi tiết</button>
+                </div>-->
+            </div>
         </div>
+    </div>
 
-        <div id="profile-order">
+    <div id="edit-box" class="edit-box hiding-box">
+        <div>
+            <div id="edit-box-title">Title</div>
+            <input id="edit-box-input" type="text" placeholder="Nhập gì đó">
+            <div>
+                <button id="edit-box-submit-btn" class="blue-btn">Cập nhật</button>
+                <button id="edit-box-cancel-btn" class="pink-btn">Huỷ</button>
+            </div>
+        </div>
+    </div>
 
+    <div id="order-detail-box" class="order-detail-box hiding-box">
+        <div class="detail-box-title">
+            <div>Chi Tiết Đơn Hàng:</div>
+            <div id="detail-box-title">0000000001</div>
+            <button id="back-btn" class="blue-btn">Trở về</button>
+        </div>
+        <div>
+            <div>Trạng thái đơn hàng: </div>
+            <div id="detail-box-current-status">vvChưa xác nhận</div>
+            <button id="cancel-order-btn" class="pink-btn long-btn">Huỷ đơn hàng</button>
+        </div>
+        <div class="order-detail">
+            <div>Đơn hàng</div>
+            <div>
+                <div>
+                    <div>Mã đơn hàng: </div>
+                    <div id="order-detail-order-id">0000000001</div>
+                </div>
+                <div>
+                    <div>Hình thức thanh toán:</div>
+                    <div id="order-detail-payment-method">COD</div>
+                </div>
+                <div>
+                    <div>Ngày đặt hàng: </div>
+                    <div id="order-detail-order-date">10/10/2021</div>
+                </div>
+                <div>
+                    <div>Ngày giao hàng (dự kiến): </div>
+                    <div id="order-detail-delivery-date">15/10/2021</div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div>Địa chỉ giao hàng: </div>
+            <div id="delivery-address"> dsdasdasd kdhfjkd jkhdkfjksd</div>
+        </div>
+        <div>
+            <div>Chi tiết đơn hàng</div>
+            <div id="order-item-box">
+                <!--<div class="order-item-element">
+                  <div>
+                      hình
+                  </div>
+                  <div>Quần Nam Đơn Sắc</div>
+                  <div>
+                    <div>Kích cỡ:  m</div>
+                    <div>Số lượng:  2</div>
+                    <div>Đơn giá:  500000</div>
+                    <div>Thành tiền:  1000000</div>
+                  </div>
+                </div>-->
+            </div>
+            <div>
+                <div>Tổng tiền: </div>
+                <div id="total-cost">1000000</div>
+            </div>
         </div>
     </div>
 </div>

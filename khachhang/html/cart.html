@@ -8,7 +8,6 @@
     <title>Giỏ Hàng - Website Bán Hàng</title>
     <link href="../css/header.css" rel="stylesheet" type="text/css">
     <link href="../css/cart.css" rel="stylesheet" type="text/css">
-    <link href="../css/notification.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <header class="header">
@@ -72,12 +71,10 @@
         </svg>
     </div>
 </header>
-<div id="notification-box" class="notification-box">
-    <div id="noti-content"></div>
-</div>
 <div id="container" class="container">
     <div id="noti">Trống rồi! Shoping thêm nhé.. <button id="to-product-tab-btn">Sản phẩm</button></div>
     <div>
+        <div>Chọn</div>
         <div>Sản phẩm</div>
         <div>Đơn giá</div>
         <div>Số lượng</div>
@@ -87,41 +84,60 @@
     </div>
 
     <div id="cart-item">
-
+       <!-- <div>
+            <input type="select">
+            <div>
+                <img src="../img/product/00072.png">
+                <div>Đồ A</div>
+            </div>
+            <div>700.000&nbsp;₫</div>
+            <div>1</div>
+            <div>xl</div>
+            <div>700.000&nbsp;₫</div>
+            <button id="0">Xoá</button>
+        </div>-->
     </div>
 
     <div>
         <div>Tổng số Tiền:</div>
         <div id="total-cost"></div>
-        <button id="buy-btn">Mua Hàng</button>
+        <button id="buy-btn" class="blue-btn long-btn disable-btn">Mua Hàng</button>
     </div>
 
-    <div>
-        <div>
-            <div>Thông tin khách hàng: </div>
+    <div id="order-box" class="order-box hiding-box">
+        <div id="order-customer-info" class="order-customer-info hiding-box">
             <div>
-                <div id="customer-information-form">
-                    <form>
-                        <input id="form-name" type="text" placeholder="Họ tên">
-                        <input id="form-phone-number" type="tel" placeholder="Số điện thoại">
-                        <input id="form-address" type="text" placeholder="Dịa chỉ">
-                        <div>
-                            <span>Đã có tài khoản? </span><button id="login-btn">Đăng nhập</button>
-                        </div>
-                    </form>
-                </div>
-                <div id="customer-information" style="display: none">
+                <div>Thông tin giao nhận</div>
+                <div id="guest-info" class="guest-info hiding-box">
                     <div>
-                        <div>Khách hàng: </div>
-                        <div id="cus-name"></div>
+                        <div>Tên khách hàng: </div>
+                        <input id="guest-name" type="text" placeholder="Nhập tên của bạn">
                     </div>
                     <div>
-                        <div>Số điện thoại: </div>
-                        <div id="cus-phone-number"></div>
+                        <div>Số điện thoại liên lạc: </div>
+                        <input id="guest-tel" type="text" placeholder="Nhập số điện thoại của bạn">
+                    </div>
+                    <div>
+                        <div>Địa chỉ giao hàng: </div>
+                        <input id="guest-address" type="text" placeholder="Nhập địa chỉ nhận hàng">
+                    </div>
+                    <div>
+                        <div>Đã có tài khoản?</div>
+                        <button id="login-btn" class="blue-btn">Đăng nhập</button>
+                    </div>
+                </div>
+                <div id="cus-info" class="cus-info hiding-box">
+                    <div>
+                        <div>Tên khách hàng: </div>
+                        <div id="cus-name"> Nguyễn Hoàng Khang</div>
+                    </div>
+                    <div>
+                        <div>Số điện thoại liên lạc: </div>
+                        <div id="cus-tel">0123456789</div>
                     </div>
                     <div>
                         <div>Địa chỉ nhận hàng:</div>
-                        <div id="cus-address" class="cus-address">
+                        <div class="cus-address">
                             <div id="cus-address-label" class="cus-address-label">Địa chỉ</div>
                             <span id="down-arrow" class="down-arrow">
                                 <svg xmlns="http://www.w3.org/2000/svg" id="Layer_6" data-name="Layer 6" viewBox="0 0 456.99 403.05">
@@ -136,8 +152,8 @@
                                     <line class="down-arrow-1" x1="442.49" y1="14.55" x2="228.49" y2="388.55"/>
                                     <line class="down-arrow-2" x1="92.5" y1="14.5" x2="361.5" y2="14.5"/>
                                 </svg>
-                            </span>
-                            <div id="cus-address-box" class="cus-address-box">
+                        </span>
+                            <div id="cus-address-box" class="cus-address-box hiding-box">
                                 <div>Địa chỉ 1</div>
                                 <div>Địa chỉ 2</div>
                                 <div>Địa chỉ 3</div>
@@ -146,21 +162,53 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div>
-            <div>Phương thức thanh toán</div>
             <div>
-                <input name="payment-method" id="cod" type="radio" checked><span>Thanh toán khi nhận hàng (COD)</span>
-            </div>
-            <div>
-                <input name="payment-method" id="bank-transfer" type="radio"><span>Chuyển khoản ngân hàng</span>
+                <div>Phương thức thanh toán</div>
                 <div>
-
+                    <input id="cod" type="radio" name="payment-method" checked>
+                    <div>COD</div>
+                </div>
+                <div>
+                    <input id="bank-transfer" type="radio" name="payment-method">
+                    <div>Chuyển khoản ngân hàng</div>
                 </div>
             </div>
+            <div>
+                <button id="back-btn" class="pink-btn">Trờ về</button>
+                <button id="next-state" class="blue-btn">Xác nhận</button>
+            </div>
         </div>
-        <div>
-            <!--thông báo khi đặt hàng thành công-->
+        <div id="order-confirming-box" class="order-confirming hiding-box">
+            <div>
+                <div>Thông tin đơn hàng</div>
+                <button id="cancel-btn" class="blue-btn">Huỷ</button>
+            </div>
+            <div>
+                <div>
+                    <div>Sản phẩm</div>
+                    <div>Đơn giá</div>
+                    <div>Số lượng</div>
+                    <div>Kích cỡ</div>
+                    <div>Thành tiền</div>
+                </div>
+                <div id="order-item-box">
+                    <!--<div>
+                        <div>
+                            <img src="../img/product/00072.png">
+                            <div>Đồ A</div>
+                        </div>
+                        <div>700.000&nbsp;₫</div>
+                        <div>1</div>
+                        <div>xl</div>
+                        <div>700.000&nbsp;₫</div>
+                    </div>-->
+                </div>
+            </div>
+            <div>
+                <div>Tổng số tiền: </div>
+                <div id="order-total-cost">2555555</div>
+                <button id="order-btn" class="pink-btn">Đặt Hàng</button>
+            </div>
         </div>
     </div>
 </div>
@@ -168,6 +216,5 @@
 <script src="../js/webStorage.js"></script>
 <script src="../js/header.js"></script>
 <script src="../js/cart.js"></script>
-<script src="../js/notification.js"></script>
 </body>
 </html>

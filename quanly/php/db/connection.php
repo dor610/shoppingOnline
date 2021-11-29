@@ -1,6 +1,7 @@
 <?php
 
-    function getConnection(){
+    function getConnection(): mysqli
+    {
         $servername = "localhost";
         $username = "root";
         $password = "";

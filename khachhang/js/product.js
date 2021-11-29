@@ -19,6 +19,7 @@ const itemTab = {
     price: document.getElementById('item-price'),
     inStock: document.getElementById('in-stock'),
     quantity: document.getElementById('quantity'),
+    description: document.getElementById("item-description"),
     buyBtn: document.getElementById('buy-btn'),
     addToCartBtn: document.getElementById('add-to-cart-btn'),
     inscBtn: document.getElementById('quantity-insc-btn'),
@@ -28,25 +29,18 @@ const itemTab = {
 const itemInfor = {
     mshh: '',
     mskc: '',
-    name: '',
-    price: 0,
-    size: '',
-    quantity: 0,
+    tenHh: '',
+    gia: 0,
+    kichCo: '',
+    soLuong: 0,
 }
 
-const sizeList = {
-    m: '',
-    s: '',
-    l: '',
-    xl: '',
-    xxl: '',
-    xxxl: '',
-};
+let sizeList = {};
 
 const sizeBtnList = {
     m: document.getElementById('m-size'),
-    s: document.getElementById('l-size'),
-    l: document.getElementById('s-size'),
+    s: document.getElementById('s-size'),
+    l: document.getElementById('l-size'),
     xl: document.getElementById('xl-size'),
     xxl: document.getElementById('xxl-size'),
     xxxl: document.getElementById('xxxl-size'),
@@ -125,43 +119,37 @@ window.addEventListener('load', ()=>{
 
     itemTab.backBtn.addEventListener("click", () =>{
        itemTab.itemTab.classList.add('hidden');
-        sizeList.l = '';
-        sizeList.m = '';
-        sizeList.s = '';
-        sizeList.xl = '';
-        sizeList.xxl = '';
-        sizeList.xxxl = '';
+        sizeList = {};
 
-        if(itemInfor.size !== '') sizeBtnList[itemInfor.size].checked = false;
+        if(itemInfor.kichCo !== '') sizeBtnList[itemInfor.kichCo].checked = false;
 
-        itemInfor.name = '';
-        itemInfor.size = '';
-        itemInfor.quantity = 0;
-        itemInfor.price = 0;
+        itemInfor.tenHh = '';
+        if(itemInfor.kichCo !== '')
+            document.getElementById(itemInfor.kichCo+"-size").classList.remove("size-chosen-btn");
+        itemInfor.kichCo = '';
+        itemInfor.soLuong = 0;
+        itemInfor.gia = 0;
         itemInfor.mshh = '';
         itemInfor.mskc = '';
+
+        itemTab.inscBtn.disabled = false;
+        itemTab.descBtn.disabled = false;
+        itemTab.quantity.disabled = false;
+
+        itemTab.buyBtn.disabled = true;
+        itemTab.buyBtn.classList.add("disable-btn");
+        itemTab.addToCartBtn.disabled = true;
+        itemTab.addToCartBtn.classList.add("disable-btn");
 
         itemTab.quantity.innerHTML = '0';
     });
 
-    sizeBtnList.m.addEventListener("click", (event) => {
-       selectSize(event.target);
-    });
-    sizeBtnList.l.addEventListener("click", (event) => {
-        selectSize(event.target);
-    });
-    sizeBtnList.s.addEventListener("click", (event) => {
-        selectSize(event.target);
-    });
-    sizeBtnList.xl.addEventListener("click", (event) => {
-        selectSize(event.target);
-    });
-    sizeBtnList.xxl.addEventListener("click", (event) => {
-        selectSize(event.target);
-    });
-    sizeBtnList.xxxl.addEventListener("click", (event) => {
-        selectSize(event.target);
-    });
+    sizeBtnList.m.onclick = selectSize;
+    sizeBtnList.l.onclick = selectSize;
+    sizeBtnList.s.onclick = selectSize;
+    sizeBtnList.xl.onclick = selectSize;
+    sizeBtnList.xxl.onclick = selectSize;
+    sizeBtnList.xxxl.onclick = selectSize;
 
     itemTab.inscBtn.addEventListener('click', inscreseQuantity);
     itemTab.descBtn.addEventListener("click", descreseQuantity);
@@ -175,51 +163,58 @@ window.addEventListener('load', ()=>{
 
 //-------------------------------------------------------------------------------//
 
-function selectSize(target){
-    console.log(target.value);
-    itemInfor.size = target.value;
-    itemInfor.mskc = sizeList[itemInfor.size].mskc;
+function selectSize(){
+    let id = this.id;
+    id = id.substring(0, id.indexOf("-"));
+    if(itemInfor.kichCo !== ''){
+        document.getElementById(itemInfor.kichCo+"-size").classList.remove("size-chosen-btn");
+    }
+    this.classList.add("size-chosen-btn");
+    itemInfor.kichCo = id;
+    itemInfor.mskc = sizeList[id].mskc;
 
+    /*-------------------------------luu y----------------------*/
     itemTab.inscBtn.disabled = false;
     itemTab.descBtn.disabled = false;
     itemTab.quantity.disabled = false;
+    itemTab.quantity.innerHTML = 0;
 
-    itemTab.inStock.innerHTML = 'Số lượng trong kho: '+ sizeList[itemInfor.size].soLuong;
+    itemTab.inStock.innerHTML = 'Số lượng trong kho: '+ sizeList[id].soLuong;
 }
 
 function inscreseQuantity(){
-    if(itemInfor.quantity < parseInt(sizeList[itemInfor.size].soLuong)){
-        itemInfor.quantity++;
-        itemTab.quantity.innerHTML = itemInfor.quantity;
+    if(itemInfor.soLuong < parseInt(sizeList[itemInfor.kichCo].soLuong)){
+        itemInfor.soLuong++;
+        itemTab.quantity.innerHTML = itemInfor.soLuong;
     }
-    if (itemInfor.quantity === 0){
+    if (itemInfor.soLuong === 0){
         itemTab.buyBtn.disabled = true;
-        itemTab.buyBtn.classList.add("btn-disabled");
+        itemTab.buyBtn.classList.add("disable-btn");
         itemTab.addToCartBtn.disabled = true;
-        itemTab.addToCartBtn.classList.add("btn-disabled");
+        itemTab.addToCartBtn.classList.add("disable-btn");
     }else {
         itemTab.buyBtn.disabled = false;
-        itemTab.buyBtn.classList.remove("btn-disabled");
+        itemTab.buyBtn.classList.remove("disable-btn");
         itemTab.addToCartBtn.disabled = false;
-        itemTab.addToCartBtn.classList.remove("btn-disabled");
+        itemTab.addToCartBtn.classList.remove("disable-btn");
     }
 }
 
 function descreseQuantity(){
-    if(itemInfor.quantity > 0){
-        itemInfor.quantity --;
-        itemTab.quantity.innerHTML = itemInfor.quantity;
+    if(itemInfor.soLuong > 0){
+        itemInfor.soLuong --;
+        itemTab.quantity.innerHTML = itemInfor.soLuong;
     }
-    if (itemInfor.quantity === 0){
+    if (itemInfor.soLuong === 0){
         itemTab.buyBtn.disabled = true;
-        itemTab.buyBtn.classList.add("btn-disabled");
+        itemTab.buyBtn.classList.add("disable-btn");
         itemTab.addToCartBtn.disabled = true;
-        itemTab.addToCartBtn.classList.add("btn-disabled");
+        itemTab.addToCartBtn.classList.add("disable-btn");
     }else {
         itemTab.buyBtn.disabled = false;
-        itemTab.buyBtn.classList.remove("btn-disabled");
+        itemTab.buyBtn.classList.remove("disable-btn");
         itemTab.addToCartBtn.disabled = false;
-        itemTab.addToCartBtn.classList.remove("btn-disabled");
+        itemTab.addToCartBtn.classList.remove("disable-btn");
     }
 }
 
@@ -227,7 +222,7 @@ function addToCart(isGoingToCart){
 
     if(getData('loggedIn') === 'true'){
         let mskh = JSON.parse(getData('userInfor')).mskh;
-        let data = 'mshh='+itemInfor.mshh+'&mskc='+sizeList[itemInfor.size].mskc+'&mskh='+mskh+'&soLuong='+itemInfor.quantity+'&type=themGioHang';
+        let data = 'mshh='+itemInfor.mshh+'&mskc='+sizeList[itemInfor.kichCo].mskc+'&mskh='+mskh+'&soLuong='+itemInfor.soLuong+'&type=themGioHang';
         sendPostRequest('../php/product.php', data, response =>{
             //console.log('Thành công');
         });
@@ -239,10 +234,9 @@ function addToCart(isGoingToCart){
         if(cart){
             for (let count = 0; count < cart.length; count++){
                 let item = JSON.parse(cart[count]);
-                console.log(cart[count].mshh +"   "+ itemInfor.mshh +"     "+cart[count].mskc+"    "+ sizeList[itemInfor.size].mskc)
-                if(item.mshh === itemInfor.mshh && item.mskc === sizeList[itemInfor.size].mskc){
+                if(item.mshh === itemInfor.mshh && item.mskc === sizeList[itemInfor.kichCo].mskc){
                     isExist = true;
-                    item.quantity = parseInt(itemInfor.quantity) + parseInt(item.quantity);
+                    item.quantity = parseInt(itemInfor.soLuong) + parseInt(item.quantity);
                     cart[count] = JSON.stringify(item);
                     break;
                 }
@@ -254,11 +248,9 @@ function addToCart(isGoingToCart){
             addItemToCart(itemInfor);
         }
     }
-    notify("Thêm Thành Công");
-    setTimeout(()=>{
-        if(isGoingToCart) location.href = '../html/cart.html';
-        else itemTab.backBtn.click();
-    }, 2000);
+    alert("Thêm Thành Công");
+    if(isGoingToCart) location.href = '../html/cart.html';
+    else itemTab.backBtn.click();
 }
 
 
@@ -344,9 +336,6 @@ function loadHangHoa(sort, fill, target){
 function createHangHoaElement(data){
     let div = document.createElement("div");
     div.classList.add("product-item");
-    div.addEventListener("click", event=>{
-       openItemTab(event.target);
-    }, {capture: true});
 
     let divChild = document.createElement("div");
     let img = document.createElement('img');
@@ -364,33 +353,35 @@ function createHangHoaElement(data){
 
     let lastDiv = document.createElement('div');
     lastDiv.id = data.mshh;
-    lastDiv.addEventListener("click", (event) =>{
-        openItemTab(event.target);
-    });
+    lastDiv.onclick = openItemTab;
 
     div.appendChild(lastDiv);
     return div;
 }
 
-function openItemTab(target){
-    let id = target.id;
+function openItemTab(){
+    let id = this.id;
 
     itemTab.itemTab.classList.remove('hidden');
     let content = "mshh="+id+"&type=getOne";
     sendPostRequest('../php/product.php', content, res =>{
-        let data = JSON.parse(this.response);
+        //console.log(res);
+        let data = JSON.parse(res);
         getItemSizeQuantity(data.mshh);
         itemTab.price.innerHTML = "Giá: "+new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND'}).format(data.gia);
         let img = document.createElement('img');
-        sendPostRequest("../php/product.php", "mshh="+data.mshh+"&type=getImg", res =>{
-            img.src = '../img/product/'+res+'.png';
+        sendPostRequest("../php/product.php", "mshh="+data.mshh+"&type=getItemImage", res =>{
+            //console.log(data);
+            let image = JSON.parse(res);
+            img.src = '../img/product/'+image.tenHinh+'.png';
         });
         itemTab.img.innerHTML = '';
         itemTab.img.appendChild(img);
 
         itemTab.name.innerHTML = data.tenHh;
-        itemInfor.price = data.gia;
-        itemInfor.name = data.tenHh;
+        itemTab.description.innerHTML = data.moTa;
+        itemInfor.gia = data.gia;
+        itemInfor.tenHh = data.tenHh;
         itemInfor.mshh = data.mshh;
     });
 }
@@ -398,11 +389,11 @@ function openItemTab(target){
 function  getItemSizeQuantity(mshh){
     sendPostRequest("../php/product.php", 'mshh='+mshh+'&type=kichCo', res =>{
         let data = JSON.parse(res);
-        data.pop();
         //console.log(data);
         let soLuong = 0;
         data.forEach(sizeOJ =>{
             let size = JSON.parse(sizeOJ);
+            //console.log(size);
             sizeList[size.tenKichCo] = size;
             soLuong += parseInt(size.soLuong);
         });
@@ -413,12 +404,14 @@ function  getItemSizeQuantity(mshh){
 }
 
 function setItemSizeQuantity() {
-    sizeBtnList.m.disabled = (sizeList.m === '');
-    sizeBtnList.l.disabled = (sizeList.s === '');
-    sizeBtnList.s.disabled = (sizeList.l === '');
-    sizeBtnList.xl.disabled = (sizeList.xl === '');
-    sizeBtnList.xxl.disabled = (sizeList.xxl === '');
-    sizeBtnList.xxxl.disabled = (sizeList.xxxl === '');
+    let keyArr = Object.keys(sizeBtnList);
+    keyArr.forEach(key =>{
+       if(sizeList[key]){
+           sizeBtnList[key].style.display = "block";
+       } else {
+           sizeBtnList[key].style.display = 'none';
+       }
+    });
 }
 
 function appendToCol(child){

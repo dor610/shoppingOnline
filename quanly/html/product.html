@@ -6,9 +6,9 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Quản Lý Sản Phẩm - Website Bán Hàng</title>
-    <link rel="stylesheet" href="../css/product.css" type="text/css">
     <link rel="stylesheet" href="../css/template.css" type="text/css">
     <link rel="stylesheet" href="../css/navBar.css" type="text/css">
+    <link rel="stylesheet" href="../css/product.css" type="text/css">
 </head>
 <body>
 <div id="main-container" class="main-container">
@@ -49,13 +49,11 @@
     </div>
     <div class="content-container">
         <div class="header">
-            <div id="tab-title">Danh Sách Sản Phẩm</div>
+            <div id="tab-title">Quản Lý Sản Phẩm</div>
             <div>
                 <div id="add-btn">Thêm</div>
-                <div>
-                    <input id="search-content" type="text" placeholder="Nhập tên sản phẩm">
-                    <div id="search-btn">Tìm</div>
-                </div>
+                <input id="search-content" type="text" placeholder="Nhập tên sản phẩm">
+                <div id="search-btn">Tìm</div>
             </div>
         </div>
         <div>
@@ -113,7 +111,7 @@
         </div>
         <div id="adding-item-box" class="adding-item-box hiding-box">
             <div>
-                <div class="adding-box-label">Thêm sản phẩm</div>
+                <div class="box-title">Thêm sản phẩm</div>
                 <form class="adding-item-form">
                     <div>
                         <div>
@@ -171,14 +169,14 @@
                     </div>
                 </form>
                 <div id="adding-form-btn" class="form-btn">
-                    <button id="adding-form-submit-btn">Thêm</button>
-                    <button id="adding-form-cancel-btn">Huỷ</button>
+                    <button id="adding-form-submit-btn" class="blue-btn">Thêm</button>
+                    <button id="adding-form-cancel-btn" class="pink-btn">Huỷ</button>
                 </div>
             </div>
         </div>
         <div id="editing-item-box" class="editing-item-box hiding-box">
             <div>
-                <div class="editing-box-label">Chỉnh sửa sản phẩm</div>
+                <div class="box-title">Chỉnh sửa sản phẩm</div>
                 <form class="editing-item-form">
                     <div>
                         <div>
@@ -249,8 +247,8 @@
                     </div>
                 </form>
                 <div id="editing-form-btn" class="form-btn">
-                    <button id="editing-box-submit-btn">Chỉnh sửa</button>
-                    <button id="editing-box-cancel-btn">Huỷ</button>
+                    <button id="editing-box-submit-btn" class="blue-btn">Chỉnh sửa</button>
+                    <button id="editing-box-cancel-btn" class="pink-btn">Huỷ</button>
                 </div>
 
             </div>
@@ -260,8 +258,8 @@
                 <div>Bạn có chắc muốn xoá sản phẩm?</div>
                 <div>Mọi thông tin của hàng hoá liên quan đến hoá đơn vẫn sẽ được giữ lại.</div>
                 <div class="form-btn deleting-form-btn" >
-                    <button id="deleting-form-submit-btn">Xoá</button>
-                    <button id="deleting-form-cancel-btn">huỷ</button>
+                    <button id="deleting-form-submit-btn" class="pink-btn">Xoá</button>
+                    <button id="deleting-form-cancel-btn" class="blue-btn">huỷ</button>
                 </div>
             </div>
         </div>

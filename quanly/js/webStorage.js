@@ -15,7 +15,7 @@ let removeUserInfor = () =>{
 }
 
 let getUserInfor = () =>{
-    if(isLoggedIn())
+    if(localStorage.loggedIn === 'true')
         return JSON.parse(localStorage.userInfor);
 
     return null;

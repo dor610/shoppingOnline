@@ -177,148 +177,169 @@ body{
     opacity: 0.3;
 }
 
-
+/*---------------------------------------------------------*/
 
 .item-tab{
     position: fixed;
     width: 100vw;
     height: calc( 100vh - 70px);
-    background-color: white;
+    background-color: #F5F3F3;
     top: 70px;
     left: 0;
     z-index: 2;
 }
 
-.back-icon{
-    fill:none;
-    stroke:white;
-    stroke-linecap:round;
-    stroke-miterlimit:10;
-    stroke-width:29px;
-    cursor: pointer;
-}
-
-.back-btn:hover .back-icon{
-    stroke: pink;
-    cursor: pointer;
-}
-
-.back-btn svg{
-    width: 40px;
-    margin-top: 10px;
-    margin-left: 20px;
-}
-
 .item-tab-header{
-    width: 100%;
-    height: 50px;
-    background-color: skyblue;
+    margin-top: 10px;
+    width: 70%;
+    height: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    display: grid;
+    grid-template-columns: auto 200px;
+    align-items: center;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-bottom: 1px solid lightgray;
+}
+
+.item-tab-header > div{
+    font-size: 26px;
 }
 
 .item-tab-container{
-    margin-top: 20px;
+    background-color: white;
+    width: 70%;
+    height: calc(100% - 100px);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    overflow: hidden;
 }
 
-.item-tab-container div:first-child{
-    display: flex;
-    flex-direction: row;
+.item-tab-container{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 60% 40%;
+    grid-template-areas: "img info"
+                         "description description";
+    gap: 10px;
 }
+
 
 .item-img{
-    width: 30%;
-    margin-left: 15%;
-    min-height: 450px;
+    grid-area: img;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
 }
 
 .item-img img{
-    height: 450px;
+    display: block;
+    height: 100%;
     margin-right: auto;
     margin-left: auto;
 }
 
 .item-information{
-    width: 40%;
-    padding: 50px;
-    padding-top: 100px;
-    font-size: 1.5pc;
-}
-
-.item-information > div{
-    width: 100%;
-    height: 40px;
-    line-height: 40px;
-}
-
-.item-information #item-name{
-    font-size: 2pc;
-    font-weight: bold;
-}
-
-.item-information > button{
-    cursor: pointer;
-    color: black;
-    height: 50px;
-    width: 200px;
-    font-size: 18px;
-    outline: none;
-    margin-top: 20px;
-    background-color: transparent;
-    border: 2px solid rgba(128, 128, 128, 0.4);
-    border-radius: 20px;
-    /*background-image: linear-gradient(to right, #FFC0CB7F, #00BFFF66, #FFC0CB7F, #00BFFF66, #FFC0CB7F, #00BFFF66, #FFC0CB7F);*/
-    background-size: 500%;
-}
-
-.item-information > div:nth-child(4) span{
-    display: inline-block;
-    margin-right: 10px;
-}
-.item-information > div:nth-child(4) span:last-child > span{
-    display: flex;
+    grid-area: info;
+    width: 80%;
+    height: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 20% 10% 15% 10% 45%;
+    grid-template-areas: "iname iname"
+                         "pr qu"
+                         "siz siz"
+                         "quchu quchu"
+                         "ibtn ibtn";
+    gap: 10px;
     align-items: center;
 }
 
-.item-information > div:nth-child(4) span:last-child > span label{
-    display: inline-block;
-    margin-right: 10px;
+.item-information > div{
+    font-size: 22px;
 }
 
-.item-information > div:nth-child(4) span:last-child > span input:disabled+label{
-    color: rgba(128, 128, 128, 0.51);
+.item-information > div:first-child{
+    grid-area: iname;
+    font-size: 26px;
+    font-weight: bold;
 }
 
-.item-information > div:nth-child(5) > button{
-    outline: none;
-    height: 30px;
-    width: 20px;
-    background-color: transparent;
-    display: inline-block;
-    margin: 5px;
-    border: 1px solid rgba(128, 128, 128, 0.4);
-    border-radius: 5px;
+
+.item-information > div:nth-child(2){
+    grid-area: pr;
 }
 
-.item-information > div:nth-child(5) > button:disabled + span{
-    color: rgba(128, 128, 128, 0.51);
+.item-information  > div:nth-child(3){
+    grid-area: qu;
 }
 
-.item-information > button:hover, .item-information > div:nth-child(5) > button:hover{
-    cursor: pointer;
+.item-information > div:nth-child(4){
+    grid-area: siz;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 100px auto;
+    align-items: center;
+}
+.item-information > div:nth-child(4) > div:nth-child(2){
+    display: flex;
+    wrap-option: wrap;
+    width: 80%;
+    gap: 10px;
+}
+
+.size-button{
+    width: 50px;
+    height: 40px;
+    border: 1px solid lightgray;
+}
+
+.size-button:hover{
     border-color: skyblue;
+    color: skyblue;
+    cursor: pointer;
 }
 
-.item-information > button:last-child:hover{
-    cursor: pointer;
-    border-color: pink;
+.size-chosen-btn{
+    border-color: deepskyblue;
+    color: deepskyblue;
 }
+
+.item-information > div:nth-child(5){
+    grid-area: quchu;
+    display: grid;
+    grid-template-columns: 100px 50px 20px 50px auto;
+    align-items: center;
+    text-align: center;
+}
+
+.item-information > div:nth-child(6){
+    grid-area: ibtn;
+    display: grid;
+    grid-template-columns: 30% 50% auto;
+}
+
 
 .item-description{
-    grid-area: des;
-    min-height: 200px;
+    padding: 40px;
+    grid-area: description;
 }
 
+.item-description > div:first-child{
+    width: 50%;
+    margin-left: 15px;
+    height: 50px;
+    font-size: 22px;
+    border-bottom: 1px solid lightgray;margin-bottom: 10px;
+    line-height: 50px;
+}
 /*-----------------------------------*/
 
 .loading-icon{

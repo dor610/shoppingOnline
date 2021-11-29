@@ -1,17 +1,15 @@
 <?php
-
 use quanly\php\db\HangHoa;
-use quanly\php\db\LoaiHangHoa;
-
-use quanly\php\db\KichCo;
 use quanly\php\db\KichCoHangHoa;
 use quanly\php\db\HinhHangHoa;
+use quanly\php\db\LoaiHangHoa;
+use quanly\php\db\KichCo;
 
-require_once "HangHoa.php";
-require_once "LoaiHangHoa.php";
-require_once "KichCo.php";
-require_once "KichCoHangHoa.php";
-require_once "HinhHangHoa.php";
+require_once "db\HangHoa.php";
+require_once "db\LoaiHangHoa.php";
+require_once "db\KichCo.php";
+require_once "db\KichCoHangHoa.php";
+require_once "db\HinhHangHoa.php";
 
 $type = $_POST['type'];
 
@@ -66,6 +64,14 @@ if($type === "deleteItemSize"){
     $mskc = $_POST['mskc'];
     $result = KichCoHangHoa::xoa($mskc, $mshh);
     echo $result;
+}
+
+if($type === "getItemSize"){
+    $mskc = $_POST['mskc'];
+    $mshh = $_POST['mshh'];
+    $result = KichCoHangHoa::tim($mskc, $mshh);
+
+    echo json_encode($result, 256);
 }
 
 if($type === "updateItemSize"){

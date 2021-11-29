@@ -36,6 +36,21 @@ class KichCoHangHoa{
         return $arr;
     }
 
+    public static function tim($mskc, $mshh){
+        $conn = getConnection();
+        $sql = "select kichco.mskc, mshh, SoLuong, kichco.TenKichCo from kichcohanghoa JOIN kichco on kichcohanghoa.mskc = kichco.mskc 
+                WHERE kichcohanghoa.mskc = '{$mskc}' and mshh = '{$mshh}'";
+        $result = $conn->query($sql);
+        $kichCo = '';
+        if($result->num_rows> 0){
+            $row = $result->fetch_assoc();
+            $kichCo = new KichCoHangHoa($row['mskc'], $row['mshh'], $row['TenKichCo'], $row['SoLuong']);
+        }
+        $result->close();
+        $conn->close();
+        return $kichCo;
+    }
+
     public static function them($mskc, $mshh, $soLuong){
         $conn = getConnection();
         $sql = "insert into kichcohanghoa values('".$mskc."', '".$mshh."', ".$soLuong.")";
@@ -74,7 +89,8 @@ class KichCoHangHoa{
         return $result;
     }
 
-    public static function capNhat($mskc, $mshh, $soLuong){
+    public static function capNhat($mskc, $mshh, $soLuong): \mysqli_result|bool
+    {
         $conn = getConnection();
         $sql = "update kichcohanghoa set soLuong = ".$soLuong." where mskc = '".$mskc."' and mshh = '".$mshh."'";
         $result = $conn->query($sql);
@@ -82,5 +98,14 @@ class KichCoHangHoa{
         return $result;
 
     }
-}
 
+    public static function capNhatSoLuong($mskc, $mshh, $soLuong){
+        $conn = getConnection();
+        $sql = "call thay_doi_so_luong_hang_hoa('$mskc', '$mshh', $soLuong)";
+        $result = $conn->query($sql);
+
+        $conn->close();
+        return $result;
+    }
+
+}

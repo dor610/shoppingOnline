@@ -1,0 +1,168 @@
+
+/*---------------------------------------------------------------------------------------*/
+
+.staff-list{
+    width: calc(100% - 20px);
+    height: calc(100vh - 170px);
+    padding: 10px;
+    margin: 10px;
+    background-color: white;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+.staff-element{
+    display: grid;
+    grid-template-columns: 15% auto 15% 15% 15% 150px;
+    grid-template-rows: 70px 50px;
+    grid-template-areas: "mot hai ba bon nam bay"
+                         "sau sau sau sau sau bay";
+    border-bottom: 1px solid gray;
+}
+
+.staff-element > div{
+    display: grid;
+    grid-template-rows: 50% 50%;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+.staff-element > div:not(:last-child){
+    border-right: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+}
+
+.staff-element > div > div{
+
+    width: 100%;
+    height: 100%;
+}
+
+.staff-element > div:not(:nth-child(6)) > div:first-child{
+    font-size: 20px;
+}
+
+.staff-element > div:nth-child(6){
+    grid-area: sau;
+    display: grid;
+    grid-template-rows: 100%;
+    grid-template-columns: calc(calc(calc(100% + 150px) / 100) * 15) auto;
+    text-align: left;
+    line-height: 50px;
+    border-bottom: none;
+}
+
+.staff-element > div:nth-child(6) > div:first-child{
+    text-align: center;
+    font-size: 20px;
+    border-right: 1px solid lightgray;
+}
+
+.staff-element > div:nth-child(6) > div:nth-child(2){
+    padding-left: 20px;
+}
+
+.staff-element > div:nth-child(7){
+    grid-area: bay;
+}
+/*--------------------------------------------------------------------------------------------*/
+
+.adding-staff-box, .editing-staff-box, .deleting-staff-box{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    backdrop-filter: blur(5px);
+}
+
+.adding-staff-box > div, .editing-staff-box > div{
+    width: 80%;
+    height: 80vh;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10vh;
+    padding:20px;
+    background-color: white;
+    box-shadow: 2px 2px 10px gray;
+}
+
+/*-----------------------------------------------------------------------------------------------*/
+
+.adding-staff-box > div, .editing-staff-box > div{
+    width: 70%;
+    height: 60vh;
+    margin-top: 20vh;
+}
+
+.adding-staff-box > div > div:nth-child(2), .editing-staff-box > div > div:nth-child(2){
+    width: 100%;
+    height: calc(100% - 50px);
+    margin-top: 50px;
+}
+
+.adding-staff-box > div > div:nth-child(2) > div, .editing-staff-box > div > div:nth-child(2) > div{
+    display: grid;
+    grid-template-columns: 30% auto;
+    align-items: center;
+    width: 80%;
+    height: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.adding-staff-box > div > div:nth-child(2) > div:last-child, .editing-staff-box > div > div:nth-child(2) > div:last-child{
+    grid-template-columns: 50% 50%;
+    width: 50%;
+    margin-top: 50px;
+}
+
+
+/*---------------------------------------------------------------------*/
+
+.deleting-staff-box > div{
+    width: 400px;
+    height: 200px;
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30vh;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 2px 2px 5px gray;
+    grid-template-rows: 25% 20% auto;
+}
+
+.deleting-staff-box > div > div:first-child{
+    font-size: 25px;
+}
+
+.deleting-staff-box > div > div:nth-child(2){
+    color: deepskyblue;
+}
+
+.deleting-staff-box > div > div:last-child{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+
+
+}
+
+
+
+
+
+
+
+/*---------------------------------------------------------*/
+.hiding-box{
+    display: none;
+}

@@ -2,6 +2,8 @@
 
 use \khachhang\php\db\KhachHang;
 use \khachhang\php\db\DiaChiKH;
+require_once "db/KhachHang.php";
+require_once "db/DiaChiKH.php";
     session_start();
     $type = $_POST['type'];
 
@@ -19,6 +21,7 @@ use \khachhang\php\db\DiaChiKH;
             $response['email'] = $khachHang->email;
             $response['sdt'] = $khachHang->soDienThoai;
             $response['hoTen'] = $khachHang->hoTenKh;
+            $response['email'] = $khachHang->email;
             $response['isSuccess'] = true;
 
             if($diaChiKH != null)
@@ -41,10 +44,8 @@ use \khachhang\php\db\DiaChiKH;
         $diaChi = $_POST['diaChi'];
         $email = $_POST['email'];
 
-        $madc = DiaChiKH::taoMaDC();
-
         $result = KhachHang::them($userName, $name, $sdt, $email);
-        if (DiaChiKH::them($madc, $diaChi, $userName) === false) $result = false;
+        if (DiaChiKH::them($diaChi, $userName) === false) $result = false;
 
         if($result == true){
             $response['isSuccess'] = true;
@@ -55,7 +56,21 @@ use \khachhang\php\db\DiaChiKH;
             $response['isSuccess'] = false;
             echo json_encode($response, JSON_UNESCAPED_UNICODE);
         }
+    }
 
+    if($type === "guestAccount"){
+        $name = $_POST['name'];
+        $sdt = $_POST['tel'];
+        $diaChi = $_POST['address'];
+        $email = null;
+        $userName = KhachHang::taoGuestUserName();
+
+        KhachHang::them($userName, $name, $sdt, $email);
+        DiaChiKH::them($diaChi, $userName);
+
+        $result = KhachHang::timGuest($userName);
+
+        echo json_encode($result, JSON_UNESCAPED_UNICODE);
     }
 
     if($type === "logout"){
@@ -78,4 +93,44 @@ use \khachhang\php\db\DiaChiKH;
         $mskh = $_POST['mskh'];
         $result = DiaChiKH::timTatCa($mskh);
         echo json_encode($result, 256);
+    }
+
+    if($type === "getAddress"){
+        $madc = $_POST['madc'];
+        $result = DiaChiKH::timDiaChi($madc);
+
+        echo json_encode($result, 256);
+    }
+
+    if($type === "addAddress"){
+        $mskh = $_POST['mskh'];
+        $diaChi = $_POST['address'];
+        $result = DiaChiKH::them($diaChi, $mskh);
+        echo $result;
+    }
+
+    if ($type === "removeAddress"){
+        $madc = $_POST['madc'];
+        $result = DiaChiKH::xoa($madc);
+        echo $result;
+    }
+
+    if($type === "updatehoTen"){
+        $name = $_POST['value'];
+        $mskh = $_POST['mskh'];
+        $result = KhachHang::capNhatTen($name, $mskh);
+        echo $result;
+    }
+    if ($type === "updatesdt"){
+        $tel = $_POST['tel'];
+        $mskh = $_POST['mskh'];
+        $result = KhachHang::capNhatSDT($tel, $mskh);
+        echo $result;
+
+    }
+    if($type === "updateemail"){
+        $email = $_POST['value'];
+        $mskh = $_POST['mskh'];
+        $result = KhachHang::capNhatEmail($email, $mskh);
+        echo $result;
     }
